@@ -25,11 +25,11 @@ const NewsRoomCard = props => {
   return (
     <Card>
       <CardContent>
-        <div class="row justify-content-start">
+        <div className="row justify-content-start">
           <h3>{ArticleSummary}</h3>
         </div>
-        <div className="d-flex col-lg-12 col-md-12 col-sm-12">
-          <div class="row">
+        <div className="d-flex col-lg-12 col-md-2 col-sm-2">
+          <div className="row justify-content-start">
             <div id="dg_main-content">
               <img
                 className="dg_image left"
@@ -37,12 +37,12 @@ const NewsRoomCard = props => {
                 alt="County Executive Olzsewski delivers a speech."
               />
             </div>
-            <div class="row">
-              <div className="d-flex col-lg-12 col-md-12 col-sm-12">
+            <div className="row justify-content-start">
+              <div className="d-flex col-lg-12 col-md-2 col-sm-2">
                 <a href={Url}>{PublishDate}</a>
                 <a href={Url}>{Author}</a>
               </div>
-              <div class="row">
+              <div className="row">
                 <p>{ArticleSummary}</p>
               </div>
             </div>
@@ -50,8 +50,8 @@ const NewsRoomCard = props => {
         </div>
       </CardContent>
       <CardFooter>
-        <div class="row justify-content-end">
-          <div class="col-lg-2 col-md-2 col-sm-2">
+        <div className="row justify-content-end">
+          <div className="col-lg-2 col-md-2 col-sm-2">
             <Button text="Details" />
           </div>
         </div>
