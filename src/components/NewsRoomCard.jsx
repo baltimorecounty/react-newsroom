@@ -7,23 +7,25 @@ import {
 import React from "react";
 
 const NewsRoomCard = props => {
-  const { PublishDate, Title, Author, ArticleSummary, Thumbnail, Url } = props;
+  const { publishDate, title, author, articleSummary, thumbnail, url } = props;
+
+  const published = new Date(publishDate).toLocaleDateString();
 
   return (
     <Card>
       <CardContent>
         <div style={{ textAlign: "left" }}>
-          <h3>{Title}</h3>
+          <h3>{title}</h3>
           <div className="itemNewsRoom">
             <div className="itemMiddle itemMiddleWidth">
-              <i className={Thumbnail} />
+              <i className={thumbnail} />
             </div>
             <div className="itemMiddle">
               <div className="itemLink">
-                <a href={Url}>{PublishDate} </a>
-                <a href={Url}>{Author}</a>
+                <a href={url}>{published} </a>
+                <a href={url}>{author}</a>
               </div>
-              <p>{ArticleSummary}</p>
+              <p>{articleSummary}</p>
             </div>
           </div>
         </div>

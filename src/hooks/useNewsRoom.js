@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { GetNews } from "../services/ApiService";
 
 const useNewsRoom = () => {
-  const [newsItems, setNewsItems] = useState([]);
+  const [newsRoomItems, setNewsItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
@@ -20,7 +20,7 @@ const useNewsRoom = () => {
       });
   }, []);
 
-  return { hasError, newsItems, isLoading };
+  return { hasError, newsRoomItems, isLoading };
 };
 
 export default useNewsRoom;

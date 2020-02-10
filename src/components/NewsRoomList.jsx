@@ -10,6 +10,7 @@ const NewsRoomList = () => {
   const { hasError, newsRoomItems = [], isLoading } = useNewsRoom();
   const [filteredItems, setFilteredItems] = useState([]);
 
+  console.log(newsRoomItems);
   const handleLoadMore = clickEvent => {};
 
   if (hasError) {
@@ -40,7 +41,7 @@ const NewsRoomList = () => {
             />
           </div>
           <FilterList
-            items={filteredItems ? filteredItems : newsRoomItems}
+            items={filteredItems.length > 0 ? filteredItems : newsRoomItems}
             renderItem={props => (
               <div
                 className="d-flex col-lg-12 col-md-12 col-sm-12"
