@@ -10,6 +10,9 @@ const NewsRoomList = () => {
   const { hasError, newsRoomItems = [], isLoading } = useNewsRoom();
   const [filteredItems, setFilteredItems] = useState([]);
 
+  console.log(hasError);
+  console.log(newsRoomItems);
+
   const initialLoad = () => {
     const items = [...newsItems].sort((a, b) => {
       a = new Date(a.PublishDate);
@@ -25,7 +28,7 @@ const NewsRoomList = () => {
   //setFilteredItems(initialLoad());
 
   //This needs to be true but for now until the service is complete we leave as false to get past it
-  if (hasError === false) {
+  if (hasError) {
     return (
       <Alert className="status" type="error">
         <p>

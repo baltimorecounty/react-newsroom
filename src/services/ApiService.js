@@ -13,11 +13,11 @@ const GetStatus = () =>
     .then(({ status }) => status === 200);
 
 /**
- * Get Services Data from SiteExecutive structured content
+ * Get News Data from SiteExecutive structured content
  */
 const GetNews = () =>
   axios
-    .get(`${getValue("apiRoot")}/news`)
+    .get("https://structuredcontentdev.bcg.ad.bcgov.us/api/news")
     .then(({ status, data }) => (status === 200 ? data : []));
 
 export { GetStatus, GetNews };

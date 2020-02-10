@@ -1,3 +1,24 @@
+.itemNewsRoom {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.itemMiddle {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 50%;
+}
+.itemMiddleWidth {
+  flex-basis: 10%;
+}
+.itemLink {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: 10px;
+}
+
 .dg_legend_container {
   flex-direction: row;
   display: flex;

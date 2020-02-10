@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import { GetNews } from "../services/ApiService";
 
 const useNewsRoom = () => {
-  const [serviceItems, setServiceItems] = useState([]);
+  const [newsItems, setNewsItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     GetNews()
       .then(response => {
-        setServiceItems(response);
+        setNewsItems(response);
       })
       .catch(() => {
         setHasError(true);
@@ -20,7 +20,7 @@ const useNewsRoom = () => {
       });
   }, []);
 
-  return { hasError, serviceItems, isLoading };
+  return { hasError, newsItems, isLoading };
 };
 
 export default useNewsRoom;
