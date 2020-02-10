@@ -4,7 +4,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "October, 24th 2019",
+    PublishDate: "October 24 2019",
 
     Title: "Sample New Story",
 
@@ -31,7 +31,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "October, 25th 2019",
+    PublishDate: "October 25 2019",
 
     Title: "Sample New Story",
 
@@ -58,7 +58,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "October, 26th 2019",
+    PublishDate: "October 26 2019",
 
     Title: "Sample New Story",
 
@@ -85,7 +85,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "October, 27th 2019",
+    PublishDate: "October 27 2019",
 
     Title: "Sample New Story",
 
@@ -112,7 +112,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "October, 28th 2019",
+    PublishDate: "October 28 2019",
 
     Title: "Sample New Story",
 
@@ -139,7 +139,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "October, 29th 2019",
+    PublishDate: "October 29 2019",
 
     Title: "Sample New Story",
 
@@ -166,7 +166,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "October, 30th 2019",
+    PublishDate: "October 30 2019",
 
     Title: "Sample New Story",
 
@@ -193,7 +193,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "October, 31th 2019",
+    PublishDate: "October 31 2019",
 
     Title: "Sample New Story",
 
@@ -220,7 +220,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "November, 1st 2019",
+    PublishDate: "November 1 2019",
 
     Title: "Sample New Story",
 
@@ -247,7 +247,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "November, 2nd 2019",
+    PublishDate: "November 2 2019",
 
     Title: "Sample New Story",
 
@@ -274,7 +274,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "November, 3rd 2019",
+    PublishDate: "November 3 2019",
 
     Title: "Sample New Story",
 
@@ -301,7 +301,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "November, 4th 2019",
+    PublishDate: "November 4 2019",
 
     Title: "Sample New Story",
 
@@ -328,7 +328,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "November, 5th 2019",
+    PublishDate: "November 5 2019",
 
     Title: "Sample New Story",
 
@@ -355,7 +355,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "November, 6th 2019",
+    PublishDate: "November 6 2019",
 
     Title: "Sample New Story",
 
@@ -382,7 +382,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "November, 7th 2019",
+    PublishDate: "November 7 2019",
 
     Title: "Sample New Story",
 
@@ -409,7 +409,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "November, 8th 2019",
+    PublishDate: "November 8 2019",
 
     Title: "Sample New Story",
 
@@ -436,7 +436,7 @@ export const newsItems = [
 
     ContentDate: "",
 
-    PublishDate: "November, 9th 2019",
+    PublishDate: "November 9 2019",
 
     Title: "Sample New Story",
 

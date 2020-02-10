@@ -7,11 +7,11 @@ const NewsRoomList = () => {
   const [filteredItems, setFilteredItems] = useState([]);
 
   const initialLoad = () => {
-    const items = [...newsItems].sort(item => {
-      return item.PublishDate;
+    const items = [...newsItems].sort((a, b) => {
+      a = new Date(a.PublishDate);
+      b = new Date(b.PublishDate);
+      return a > b ? -1 : a < b ? 1 : 0;
     });
-
-    console.log(items);
     return items.slice(0, 10);
   };
 
@@ -30,6 +30,7 @@ const NewsRoomList = () => {
           )}
         />
       </div>
+      <div></div>
     </React.Fragment>
   );
 };
