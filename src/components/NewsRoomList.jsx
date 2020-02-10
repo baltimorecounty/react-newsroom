@@ -10,24 +10,8 @@ const NewsRoomList = () => {
   const { hasError, newsRoomItems = [], isLoading } = useNewsRoom();
   const [filteredItems, setFilteredItems] = useState([]);
 
-  console.log(hasError);
-  console.log(newsRoomItems);
-
-  const initialLoad = () => {
-    const items = [...newsItems].sort((a, b) => {
-      a = new Date(a.PublishDate);
-      b = new Date(b.PublishDate);
-      return a > b ? -1 : a < b ? 1 : 0;
-    });
-
-    return items.slice(0, 10);
-  };
-
   const handleLoadMore = clickEvent => {};
 
-  //setFilteredItems(initialLoad());
-
-  //This needs to be true but for now until the service is complete we leave as false to get past it
   if (hasError) {
     return (
       <Alert className="status" type="error">
@@ -56,7 +40,7 @@ const NewsRoomList = () => {
             />
           </div>
           <FilterList
-            items={initialLoad()}
+            items={newsItems}
             renderItem={props => (
               <div
                 className="d-flex col-lg-12 col-md-12 col-sm-12"

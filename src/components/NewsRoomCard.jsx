@@ -7,26 +7,13 @@ import {
 import React from "react";
 
 const NewsRoomCard = props => {
-  const {
-    Id,
-    ContentDate,
-    PublishDate,
-    Title,
-    Author,
-    ArticleSummary,
-    Article,
-    Category,
-    Thumbnail,
-    Url
-  } = props;
-
-  const { Label, Value } = Category;
+  const { PublishDate, Title, Author, ArticleSummary, Thumbnail, Url } = props;
 
   return (
     <Card>
       <CardContent>
         <div className="row justify-content-start">
-          <h3>{ArticleSummary}</h3>
+          <h3>{Title}</h3>
         </div>
         <div className="d-flex col-lg-12 col-md-2 col-sm-2">
           <div className="row">

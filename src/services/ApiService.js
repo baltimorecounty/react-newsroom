@@ -20,4 +20,14 @@ const GetNews = () =>
     .get("https://structuredcontentdev.bcg.ad.bcgov.us/api/news")
     .then(({ status, data }) => (status === 200 ? data : []));
 
-export { GetStatus, GetNews };
+/**
+ * Get News Data from SiteExecutive structured content by count
+ */
+const GetMoreNews = (limit, offset) =>
+  axios
+    .get(
+      `https://structuredcontentdev.bcg.ad.bcgov.us/api/news?limit=${limit}&offset=${offset}`
+    )
+    .then(({ status, data }) => (status === 200 ? data : []));
+
+export { GetStatus, GetNews, GetMoreNews };
