@@ -35,8 +35,9 @@ const NewsRoomCard = props => {
             />
              </div> 
           </div>
-          <div className="itemTwo "> <span> <a href={Url}>{PublishDate}</a>
-            <a href={Url}>{Author}</a><p>{ArticleSummary}</p></span>
+          <div className="itemTwo "> <div className="row"> <a href={Url}>{PublishDate}</a>
+            <a href={Url}>{Author}</a></div>
+            <p>{ArticleSummary}</p>
             </div> 
        
             <div className="itemOne">

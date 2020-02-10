@@ -3,21 +3,26 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: none;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   position: relative;
   margin-bottom: 30px;
   padding: 20px;
-  text-align: center;
+  /* text-align: center; */
   width: 100%;
 }
-.dg_card__content1 > p, a {
-  
+.row1 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  /* margin-left: -15px; */
+}
+/* p {
 
     display: block;
     font-size: 18px;
     margin-bottom: 20px;
-
-}
+    margin-left: 1px;
+} */
 
 .dg_legend_container {
   flex-direction: row;
@@ -60,16 +65,16 @@
   width: 1000px;
   display: flex;
   flex-wrap: wrap;
-  border: blue solid;
+  /* border: blue solid; */
 }
 .itemOne {
   flex: 1 1 100%;
-  border: blue solid;
+  /* border: blue solid; */
   box-sizing: border-box;
 }
 .itemTwo {
   flex: 1 1 50%;
-  border: blue solid;
+  /* border: blue solid; */
   box-sizing: border-box;
 }
 .defaultWidth {
