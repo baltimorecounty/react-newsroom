@@ -28,7 +28,7 @@ const NewsRoomCard = props => {
          <div className="itemOne"> <h3>{ArticleSummary}</h3></div>
           <div className="itemTwo defaultWidth">
             <img
-              className=""
+              className="imageSize"
               src="//baltimorecountymd.gov/sebin/t/t/homepage-county-executive.jpg"
               alt="County Executive Olzsewski delivers a speech."
             />

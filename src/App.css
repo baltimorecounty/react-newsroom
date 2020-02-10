@@ -57,6 +57,9 @@ border: blue solid;
  .defaultWidth{
    flex-basis: 10%
  }
+ .imageSize{
+   width:300px;
+ }
 
 
 
