@@ -1,3 +1,17 @@
+.dg_card1 {
+  border: 1px solid #666;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: none;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+
 .dg_legend_container {
   flex-direction: row;
   display: flex;
@@ -37,31 +51,26 @@
 
 .box {
   width: 1000px;
- display: flex;
- flex-wrap: wrap;
- border: blue solid;
-
+  display: flex;
+  flex-wrap: wrap;
+  border: blue solid;
 }
- .itemOne{
-    flex: 1 1 100%;
-border: blue solid;
- box-sizing:border-box
-
-}  
-   .itemTwo{
-    flex:1 1 50%;
-border: blue solid;
- box-sizing:border-box
-
+.itemOne {
+  flex: 1 1 100%;
+  border: blue solid;
+  box-sizing: border-box;
 }
- .defaultWidth{
-   flex-basis: 10%
- }
- .imageSize{
-   width:300px;
- }
-
-
+.itemTwo {
+  flex: 1 1 50%;
+  border: blue solid;
+  box-sizing: border-box;
+}
+.defaultWidth {
+  flex-basis: 10%;
+}
+.imageSize {
+  width: 300px;
+}
 
 @media screen and (max-width: 992px) {
   .dg_legend_container {

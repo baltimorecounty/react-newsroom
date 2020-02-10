@@ -23,8 +23,8 @@ const NewsRoomCard = props => {
   const { Label, Value } = Category;
 
   return (
+ <div className="dg_card1">
 
-        <div className="box">
          <div className="itemOne"> <h3>{ArticleSummary}</h3></div>
           <div className="itemTwo defaultWidth">
             <img
@@ -37,6 +37,7 @@ const NewsRoomCard = props => {
           <div className="itemTwo ">  <a href={Url}>{PublishDate}</a>
             <a href={Url}>{Author}</a><p>{ArticleSummary}</p>
             </div> 
+     
             <div className="itemOne">
             <div class="row justify-content-end">
           <div class="col-lg-2 col-md-2 col-sm-2">
@@ -44,9 +45,9 @@ const NewsRoomCard = props => {
           </div>
         </div>
             </div>
-        </div>
- 
 
+        </div>
+      
  );
 };
 
