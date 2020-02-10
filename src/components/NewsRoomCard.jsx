@@ -12,26 +12,25 @@ const NewsRoomCard = props => {
   return (
     <Card>
       <CardContent>
-        <div className="row justify-content-start">
+        <div style={{ textAlign: "left" }}>
           <h3>{Title}</h3>
-        </div>
-        <div className="d-flex col-lg-12 col-md-2 col-sm-2">
-          <div className="row">
-            <i className={Thumbnail} />
-
-            <div className="d-flex col-lg-12 col-md-2 col-sm-2">
-              <a href={Url}>{PublishDate}</a>
-              <a href={Url}>{Author}</a>
+          <div className="itemNewsRoom">
+            <div className="itemMiddle itemMiddleWidth">
+              <i className={Thumbnail} />
             </div>
-            <div className="row">
+            <div className="itemMiddle">
+              <div className="itemLink">
+                <a href={Url}>{PublishDate} </a>
+                <a href={Url}>{Author}</a>
+              </div>
               <p>{ArticleSummary}</p>
             </div>
           </div>
         </div>
       </CardContent>
       <CardFooter>
-        <div className="row justify-content-end">
-          <div className="col-lg-2 col-md-2 col-sm-2">
+        <div class="row justify-content-end">
+          <div class="col-lg-2 col-md-2 col-sm-2">
             <Button text="Details" />
           </div>
         </div>

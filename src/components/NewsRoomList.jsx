@@ -40,7 +40,7 @@ const NewsRoomList = () => {
             />
           </div>
           <FilterList
-            items={newsItems}
+            items={filteredItems ? filteredItems : newsRoomItems}
             renderItem={props => (
               <div
                 className="d-flex col-lg-12 col-md-12 col-sm-12"
