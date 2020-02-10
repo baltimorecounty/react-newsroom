@@ -1,28 +1,20 @@
-.dg_card1 {
+.newsRoomCard {
   border: 1px solid #666;
   display: flex;
   flex-wrap: wrap;
   flex-direction: none;
-  /* justify-content: space-between; */
+   justify-content: space-between;  
   position: relative;
   margin-bottom: 30px;
   padding: 20px;
-  /* text-align: center; */
   width: 100%;
 }
-/* .row1 {
+ .itemLink {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
-   margin-left: -15px; 
-}
-p {
 
-    display: block;
-    font-size: 18px;
-    margin-bottom: 20px;
-    margin-left: 1px;
-} */
+}
 
 .dg_legend_container {
   flex-direction: row;
@@ -65,19 +57,17 @@ p {
   width: 1000px;
   display: flex;
   flex-wrap: wrap;
-  /* border: blue solid; */
+
 }
-.itemOne {
+.itemHeader, .itemFooter {
   flex: 1 1 100%;
-  /* border: blue solid; */
   box-sizing: border-box;
 }
-.itemTwo {
+.itemMiddle {
   flex: 1 1 50%;
-  /* border: blue solid; */
   box-sizing: border-box;
 }
-.defaultWidth {
+.itemMiddleWidth {
   flex-basis: 10%;
 }
 .imageSize {
