@@ -29,22 +29,15 @@ const NewsRoomCard = props => {
           <h3>{ArticleSummary}</h3>
         </div>
         <div className="d-flex col-lg-12 col-md-2 col-sm-2">
-          <div className="row justify-content-start">
-            <div id="dg_main-content">
-              <img
-                className="dg_image left"
-                src="//baltimorecountymd.gov/sebin/t/t/homepage-county-executive.jpg"
-                alt="County Executive Olzsewski delivers a speech."
-              />
+          <div className="row">
+            <i className={Thumbnail} />
+
+            <div className="d-flex col-lg-12 col-md-2 col-sm-2">
+              <a href={Url}>{PublishDate}</a>
+              <a href={Url}>{Author}</a>
             </div>
-            <div className="row justify-content-start">
-              <div className="d-flex col-lg-12 col-md-2 col-sm-2">
-                <a href={Url}>{PublishDate}</a>
-                <a href={Url}>{Author}</a>
-              </div>
-              <div className="row">
-                <p>{ArticleSummary}</p>
-              </div>
+            <div className="row">
+              <p>{ArticleSummary}</p>
             </div>
           </div>
         </div>

@@ -22,7 +22,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -49,7 +49,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -76,7 +76,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -103,7 +103,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -130,7 +130,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -157,7 +157,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -184,7 +184,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -211,7 +211,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -238,7 +238,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -265,7 +265,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -292,7 +292,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -319,7 +319,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -346,7 +346,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -373,7 +373,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -400,7 +400,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -427,7 +427,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   },
@@ -454,7 +454,7 @@ export const newsItems = [
       Value: "news-release"
     },
 
-    Thumbnail: "newspaper.png",
+    Thumbnail: "fas fa-newspaper",
 
     Url: "https://beta.baltimorecountymd.gov/news"
   }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { GetServices } from "../services/ApiService";
+import { GetNews } from "../services/ApiService";
 
 const useNewsRoom = () => {
   const [serviceItems, setServiceItems] = useState([]);
@@ -8,7 +8,7 @@ const useNewsRoom = () => {
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    GetServices()
+    GetNews()
       .then(response => {
         setServiceItems(response);
       })
