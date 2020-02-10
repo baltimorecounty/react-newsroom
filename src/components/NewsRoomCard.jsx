@@ -25,40 +25,34 @@ const NewsRoomCard = props => {
   return (
     <Card>
       <CardContent>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column"
-          }}
-        >
-          <h3>{ArticleSummary}</h3>
-          <div id="dg_main-content">
-            <img
-              className="dg_image left"
-              src="//baltimorecountymd.gov/sebin/t/t/homepage-county-executive.jpg"
-              alt="County Executive Olzsewski delivers a speech."
-            />
+        <h3>{ArticleSummary}</h3>
+
+        <div className="d-flex col-lg-12 col-md-12 col-sm-12">
+          <div class="row">
+            <div id="dg_main-content">
+              <img
+                className="dg_image left"
+                src="//baltimorecountymd.gov/sebin/t/t/homepage-county-executive.jpg"
+                alt="County Executive Olzsewski delivers a speech."
+              />
+            </div>
+            <div class="row">
+              <div className="d-flex col-lg-12 col-md-12 col-sm-12">
+                <a href={Url}>{PublishDate}</a>
+                <a href={Url}>{Author}</a>
+              </div>
+              <div class="row">
+                <p>{ArticleSummary}</p>
+              </div>
+            </div>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row"
-            }}
-          >
-            <a href={Url}>{PublishDate}</a>
-            <a href={Url}>{Author}</a>
-          </div>
-          <p>{ArticleSummary}</p>
         </div>
       </CardContent>
       <CardFooter>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row"
-          }}
-        >
-          <Button text="Details" />
+        <div class="row justify-content-end">
+          <div class="col-lg-2 col-md-2 col-sm-2">
+            <Button text="Details" />
+          </div>
         </div>
       </CardFooter>
     </Card>

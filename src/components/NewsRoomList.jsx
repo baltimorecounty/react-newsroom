@@ -10,7 +10,10 @@ const NewsRoomList = () => {
         <FilterList
           items={newsItems}
           renderItem={props => (
-            <div className="d-flex col-lg-12 col-md-12 col-sm-12">
+            <div
+              className="d-flex col-lg-12 col-md-12 col-sm-12"
+              key={props.Id}
+            >
               <NewsRoomCard {...props} />
             </div>
           )}
