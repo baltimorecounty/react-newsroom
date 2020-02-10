@@ -24,20 +24,21 @@ const NewsRoomCard = props => {
 
   return (
  <div className="dg_card1">
-
          <div className="itemOne"> <h3>{ArticleSummary}</h3></div>
           <div className="itemTwo defaultWidth">
+           <div id="dg_main-content">
             <img
-              className="imageSize"
+            className="dg_image left"
+              //className="imageSize"
               src="//baltimorecountymd.gov/sebin/t/t/homepage-county-executive.jpg"
               alt="County Executive Olzsewski delivers a speech."
             />
-            </div>
-  
-          <div className="itemTwo ">  <a href={Url}>{PublishDate}</a>
-            <a href={Url}>{Author}</a><p>{ArticleSummary}</p>
+             </div> 
+          </div>
+          <div className="itemTwo "> <span> <a href={Url}>{PublishDate}</a>
+            <a href={Url}>{Author}</a><p>{ArticleSummary}</p></span>
             </div> 
-     
+       
             <div className="itemOne">
             <div class="row justify-content-end">
           <div class="col-lg-2 col-md-2 col-sm-2">
@@ -45,7 +46,7 @@ const NewsRoomCard = props => {
           </div>
         </div>
             </div>
-
+         
         </div>
       
  );

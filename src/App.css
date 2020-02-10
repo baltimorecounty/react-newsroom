@@ -10,7 +10,14 @@
   text-align: center;
   width: 100%;
 }
+.dg_card__content1 > p, a {
+  
 
+    display: block;
+    font-size: 18px;
+    margin-bottom: 20px;
+
+}
 
 .dg_legend_container {
   flex-direction: row;
