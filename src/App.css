@@ -1,4 +1,4 @@
-/* .newsRoomCard {
+.newsRoomCard {
   display: flex;
   flex-wrap: wrap;
   flex-direction: none;
@@ -7,7 +7,20 @@
   margin-bottom: 30px;
   padding: 20px;
   width: 100%;
-} */
+} 
+
+.itemHeader,
+.itemFooter {
+  flex: 1 1 100%;
+  box-sizing: border-box;
+}
+.itemMiddle {
+  flex: 1 1 50%;
+  box-sizing: border-box;
+}
+.itemMiddleWidth {
+  flex-basis: 10%;
+}
 .itemLink {
   display: flex;
   flex-wrap: wrap;
@@ -51,21 +64,6 @@
   font-weight: 900;
 }
 
-.itemHeader,
-.itemFooter {
-  flex: 1 1 100%;
-  box-sizing: border-box;
-}
-.itemMiddle {
-  flex: 1 1 50%;
-  box-sizing: border-box;
-}
-.itemMiddleWidth {
-  flex-basis: 10%;
-}
-.imageSize {
-  width: 300px;
-}
 
 @media screen and (max-width: 992px) {
   .dg_legend_container {
