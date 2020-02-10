@@ -34,10 +34,10 @@ const NewsRoomList = () => {
             <ListCounter
               count={
                 filteredItems.length === 0
-                  ? newsItems.length
+                  ? newsRoomItems.length
                   : filteredItems.length
               }
-              total={newsItems.length}
+              total={newsRoomItems.length}
             />
           </div>
           <FilterList
@@ -56,9 +56,11 @@ const NewsRoomList = () => {
       <div>
         <ListCounter
           count={
-            filteredItems.length === 0 ? newsItems.length : filteredItems.length
+            filteredItems.length === 0
+              ? newsRoomItems.length
+              : filteredItems.length
           }
-          total={newsItems.length}
+          total={newsRoomItems.length}
         />
         <Button text="Load More" onClick={handleLoadMore} />
       </div>
