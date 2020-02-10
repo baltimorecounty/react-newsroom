@@ -37,6 +37,13 @@ const NewsRoomCard = props => {
           <div className="itemTwo ">  <a href={Url}>{PublishDate}</a>
             <a href={Url}>{Author}</a><p>{ArticleSummary}</p>
             </div> 
+            <div className="itemOne">
+            <div class="row justify-content-end">
+          <div class="col-lg-2 col-md-2 col-sm-2">
+            <Button text="Details" />
+          </div>
+        </div>
+            </div>
         </div>
  
   );
