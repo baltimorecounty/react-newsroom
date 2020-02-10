@@ -23,45 +23,22 @@ const NewsRoomCard = props => {
   const { Label, Value } = Category;
 
   return (
-    <Card>
-      <CardContent>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column"
-          }}
-        >
-          <h3>{ArticleSummary}</h3>
-          <div id="dg_main-content">
+
+        <div className="box">
+         <div className="itemOne"> <h3>{ArticleSummary}</h3></div>
+          <div className="itemTwo defaultWidth">
             <img
-              className="dg_image left"
+              className=""
               src="//baltimorecountymd.gov/sebin/t/t/homepage-county-executive.jpg"
               alt="County Executive Olzsewski delivers a speech."
             />
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row"
-            }}
-          >
-            <a href={Url}>{PublishDate}</a>
-            <a href={Url}>{Author}</a>
-          </div>
-          <p>{ArticleSummary}</p>
+            </div>
+  
+          <div className="itemTwo ">  <a href={Url}>{PublishDate}</a>
+            <a href={Url}>{Author}</a><p>{ArticleSummary}</p>
+            </div> 
         </div>
-      </CardContent>
-      <CardFooter>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row"
-          }}
-        >
-          <Button text="Details" />
-        </div>
-      </CardFooter>
-    </Card>
+ 
   );
 };
 

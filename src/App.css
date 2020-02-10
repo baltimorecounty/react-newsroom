@@ -35,6 +35,31 @@
   font-weight: 900;
 }
 
+.box {
+  width: 1000px;
+ display: flex;
+ flex-wrap: wrap;
+ border: blue solid;
+
+}
+ .itemOne{
+    flex: 1 1 100%;
+border: blue solid;
+ box-sizing:border-box
+
+}  
+   .itemTwo{
+    flex:1 1 50%;
+border: blue solid;
+ box-sizing:border-box
+
+}
+ .defaultWidth{
+   flex-basis: 10%
+ }
+
+
+
 @media screen and (max-width: 992px) {
   .dg_legend_container {
     justify-content: flex-start;
