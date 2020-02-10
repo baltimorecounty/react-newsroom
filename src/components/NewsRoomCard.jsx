@@ -32,9 +32,10 @@ const NewsRoomCard = props => {
               <i className={Thumbnail} />
             </div>
             <div className="itemMiddle">
+              <div className="itemLink">
               <a href={Url}>{PublishDate} </a>
               <a href={Url}>{Author}</a>
-
+              </div>
               <p>{ArticleSummary}</p>
             </div>
           </div>
