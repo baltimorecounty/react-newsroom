@@ -25,8 +25,9 @@ const NewsRoomCard = props => {
   return (
     <Card>
       <CardContent>
-        <h3>{ArticleSummary}</h3>
-
+        <div class="row justify-content-start">
+          <h3>{ArticleSummary}</h3>
+        </div>
         <div className="d-flex col-lg-12 col-md-12 col-sm-12">
           <div class="row">
             <div id="dg_main-content">
