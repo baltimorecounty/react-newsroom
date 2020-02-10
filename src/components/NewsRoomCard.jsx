@@ -46,7 +46,8 @@ const NewsRoomCard = props => {
             </div>
         </div>
  
-  );
+
+ );
 };
 
 export default NewsRoomCard;
