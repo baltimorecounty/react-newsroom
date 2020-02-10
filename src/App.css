@@ -1,19 +1,17 @@
-.newsRoomCard {
-  border: 1px solid #666;
+/* .newsRoomCard {
   display: flex;
   flex-wrap: wrap;
   flex-direction: none;
-   justify-content: space-between;  
+  justify-content: space-between;
   position: relative;
   margin-bottom: 30px;
   padding: 20px;
   width: 100%;
-}
- .itemLink {
+} */
+.itemLink {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
-
 }
 
 .dg_legend_container {
@@ -53,13 +51,8 @@
   font-weight: 900;
 }
 
-.box {
-  width: 1000px;
-  display: flex;
-  flex-wrap: wrap;
-
-}
-.itemHeader, .itemFooter {
+.itemHeader,
+.itemFooter {
   flex: 1 1 100%;
   box-sizing: border-box;
 }

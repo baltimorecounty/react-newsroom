@@ -23,33 +23,30 @@ const NewsRoomCard = props => {
   const { Label, Value } = Category;
 
   return (
- <div className="newsRoomCard">
-         <div className="itemHeader"> <h3>{ArticleSummary}</h3></div>
-          <div className="itemMiddle itemMiddleWidth">
-           <div id="dg_main-content">
-            <img
-            className="dg_image left"
-              src="//baltimorecountymd.gov/sebin/t/t/homepage-county-executive.jpg"
-              alt="County Executive Olzsewski delivers a speech."
-            />
-             </div> 
-          </div>
-          <div className="itemMiddle "> <div className="itemLink"> <a href={Url}>{PublishDate} </a>  
-            <a href={Url}>{Author}</a></div>
+    <Card>
+      <CardContent>
+        <div style={{ textAlign: "left" }}>
+          <h3>{Title}</h3>
+          <div className="itemMiddle">
+            <i className={Thumbnail} />
+
+            <div className="itemLink">
+              <a href={Url}>{PublishDate} </a>
+              <a href={Url}>{Author}</a>
+            </div>
             <p>{ArticleSummary}</p>
-            </div> 
-       
-            <div className="itemFooter">
-            <div class="row justify-content-end">
+          </div>
+        </div>
+      </CardContent>
+      <CardFooter>
+        <div class="row justify-content-end">
           <div class="col-lg-2 col-md-2 col-sm-2">
             <Button text="Details" />
           </div>
         </div>
-            </div>
-         
-        </div>
-      
- );
+      </CardFooter>
+    </Card>
+  );
 };
 
 export default NewsRoomCard;
