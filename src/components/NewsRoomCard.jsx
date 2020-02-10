@@ -23,31 +23,30 @@ const NewsRoomCard = props => {
   const { Label, Value } = Category;
 
   return (
-    
-    <Card >
-    <CardContent>
-         <h3>{Title}</h3>
+    <Card>
+      <CardContent>
+        <div style={{ textAlign: "left" }}>
+          <h3>{Title}</h3>
           <div className="itemNewsRoom">
-          <div className="itemMiddle itemMiddleWidth">
-            <i className={Thumbnail} />
-           </div>
-          <div className="itemMiddle">
+            <div className="itemMiddle itemMiddleWidth">
+              <i className={Thumbnail} />
+            </div>
+            <div className="itemMiddle">
               <a href={Url}>{PublishDate} </a>
               <a href={Url}>{Author}</a>
-              
+
               <p>{ArticleSummary}</p>
-           
-          
+            </div>
           </div>
-          </div>
-          </CardContent>
-          <CardFooter>
+        </div>
+      </CardContent>
+      <CardFooter>
         <div class="row justify-content-end">
           <div class="col-lg-2 col-md-2 col-sm-2">
             <Button text="Details" />
           </div>
         </div>
-        </CardFooter>
+      </CardFooter>
     </Card>
   );
 };
