@@ -24,29 +24,31 @@ const NewsRoomCard = props => {
 
   return (
     
-    <div className="newsRoomCard">
-        <div className="itemHeader"> <h3>{Title}</h3></div>
-      
+    <Card >
+    <CardContent>
+         <h3>{Title}</h3>
+          <div className="itemNewsRoom">
           <div className="itemMiddle itemMiddleWidth">
             <i className={Thumbnail} />
-          </div>
+           </div>
           <div className="itemMiddle">
-            <div className="itemLink">
               <a href={Url}>{PublishDate} </a>
               <a href={Url}>{Author}</a>
+              
               <p>{ArticleSummary}</p>
-            </div>
+           
           
           </div>
-        
-        <div className="itemFooter">
+          </div>
+          </CardContent>
+          <CardFooter>
         <div class="row justify-content-end">
           <div class="col-lg-2 col-md-2 col-sm-2">
             <Button text="Details" />
           </div>
         </div>
-        </div>
-    </div>
+        </CardFooter>
+    </Card>
   );
 };
 
