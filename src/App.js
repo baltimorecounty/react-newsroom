@@ -36,7 +36,7 @@ setConfig(configValues);
 
 function App() {
   return (
-    <div className="bc_services-list-app">
+    <div>
       <NewsRoomList />
     </div>
   );

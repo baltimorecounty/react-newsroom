@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { GetNews } from "../services/ApiService";
 
-const useNews = () => {
+const useNews = props => {
   const [newsRoomItems, setNewsItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
@@ -10,7 +10,6 @@ const useNews = () => {
   useEffect(() => {
     GetNews()
       .then(response => {
-        console.log(response);
         setNewsItems(response);
       })
       .catch(() => {
