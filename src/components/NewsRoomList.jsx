@@ -8,11 +8,6 @@ import { Alert } from "@baltimorecounty/dotgov-components";
 
 const NewsRoomList = () => {
   const { hasError, newsRoomItems = [], isLoading } = useNews();
-  const [filteredItems, setFilteredItems] = useState([]);
-
-  const handleLoadMoreNewsItems = clickEvent => {
-    setFilteredItems([]);
-  };
 
   if (hasError) {
     return (
@@ -33,16 +28,12 @@ const NewsRoomList = () => {
         <div className="row">
           <div className="col-md-6 col-xs-12 order-xs-last order-md-first ">
             <ListCounter
-              count={
-                filteredItems.length === 0
-                  ? newsRoomItems.length
-                  : filteredItems.length
-              }
+              count={newsRoomItems.length}
               total={newsRoomItems.length}
             />
           </div>
           <FilterList
-            items={filteredItems.length > 0 ? filteredItems : newsRoomItems}
+            items={newsRoomItems}
             renderItem={props => (
               <div
                 className="d-flex col-lg-12 col-md-12 col-sm-12"
@@ -56,18 +47,10 @@ const NewsRoomList = () => {
       )}
       <div>
         <ListCounter
-          count={
-            filteredItems.length === 0
-              ? newsRoomItems.length
-              : filteredItems.length
-          }
+          count={newsRoomItems.length}
           total={newsRoomItems.length}
         />
-        <button
-          type="button"
-          onClick={handleLoadMoreNewsItems}
-          class="dg_button"
-        >
+        <button type="button" class="dg_button">
           Load More
         </button>
       </div>
