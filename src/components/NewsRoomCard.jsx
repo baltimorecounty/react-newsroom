@@ -23,7 +23,7 @@ const NewsRoomCard = props => {
         <div class="row">
           <h3>{title}</h3>
         </div>
-        <div className="d-flex col-lg-12 col-md-12 col-sm-12">
+        <div className="d-flex col-12">
           <div class="row">
             <div id="dg_main-content">
               <img
@@ -46,7 +46,7 @@ const NewsRoomCard = props => {
       </CardContent>
       <CardFooter>
         <div class="row justify-content-end">
-          <div class="col-lg-2 col-md-2 col-sm-2">
+          <div class="col-2">
             <Button text="Details" />
           </div>
         </div>
