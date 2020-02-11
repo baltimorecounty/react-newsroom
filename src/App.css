@@ -3,8 +3,13 @@
   color: gray;
 }
 
-.dg_card_date-author {
+.dg_card_date-author_separator {
   border-right: 2px solid gray;
   padding-right: 20px;
   margin-right: 20px;
+}
+
+.dg_card_date-author p {
+  text-decoration: underline;
+  color: blue;
 }

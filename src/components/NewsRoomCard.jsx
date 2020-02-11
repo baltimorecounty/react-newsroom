@@ -31,12 +31,12 @@ const NewsRoomCard = props => {
                 src="//baltimorecountymd.gov/sebin/t/t/homepage-county-executive.jpg"
                 alt="County Executive Olzsewski delivers a speech."
               />
-              <div className="d-flex ">
-                <div className="dg_card_date-author">
-                  <a href={url}>{published}</a>
+              <div className="d-flex dg_card_date-author">
+                <div className="dg_card_date-author_separator">
+                  <p>{published}</p>
                 </div>
                 <div>
-                  <a href={url}>{author}</a>
+                  <p>{author}</p>
                 </div>
               </div>
               <p>{articleSummary}</p>
