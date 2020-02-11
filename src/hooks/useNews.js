@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { GetNews } from "../services/ApiService";
 
-const useNewsRoom = () => {
+const useNews = () => {
   const [newsRoomItems, setNewsItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
@@ -10,6 +10,7 @@ const useNewsRoom = () => {
   useEffect(() => {
     GetNews()
       .then(response => {
+        console.log(response);
         setNewsItems(response);
       })
       .catch(() => {
@@ -23,4 +24,4 @@ const useNewsRoom = () => {
   return { hasError, newsRoomItems, isLoading };
 };
 
-export default useNewsRoom;
+export default useNews;

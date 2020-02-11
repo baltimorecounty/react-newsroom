@@ -3,16 +3,15 @@ import FilterList from "./FilterList";
 import NewsRoomCard from "./NewsRoomCard";
 import { newsItems } from "../files/NewsItems";
 import ListCounter from "./ListCounter";
-import useNewsRoom from "../hooks/useNewsRoom";
-import { Alert, Button } from "@baltimorecounty/dotgov-components";
+import useNews from "../hooks/useNews";
+import { Alert } from "@baltimorecounty/dotgov-components";
 
 const NewsRoomList = () => {
-  const { hasError, newsRoomItems = [], isLoading } = useNewsRoom();
+  const { hasError, newsRoomItems = [], isLoading } = useNews();
   const [filteredItems, setFilteredItems] = useState([]);
 
   const handleLoadMoreNewsItems = clickEvent => {
     setFilteredItems([]);
-    console.log("Load More Results");
   };
 
   if (hasError) {
@@ -43,7 +42,7 @@ const NewsRoomList = () => {
             />
           </div>
           <FilterList
-            items={newsItems}
+            items={filteredItems.length > 0 ? filteredItems : newsRoomItems}
             renderItem={props => (
               <div
                 className="d-flex col-lg-12 col-md-12 col-sm-12"
@@ -64,11 +63,13 @@ const NewsRoomList = () => {
           }
           total={newsRoomItems.length}
         />
-        <Button
-          type="submit"
-          text="Load More"
+        <button
+          type="button"
           onClick={handleLoadMoreNewsItems}
-        />
+          class="dg_button"
+        >
+          Load More
+        </button>
       </div>
     </React.Fragment>
   );

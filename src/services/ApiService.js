@@ -23,10 +23,10 @@ const GetNews = () =>
 /**
  * Get News Data from SiteExecutive structured content by count
  */
-const GetMoreNews = (limit, offset) =>
+const GetMoreNews = (page, perPage) =>
   axios
     .get(
-      `https://structuredcontentdev.bcg.ad.bcgov.us/api/news?limit=${limit}&offset=${offset}`
+      `https://structuredcontentdev.bcg.ad.bcgov.us"/api/News?page=${page}&perPage=${perPage}`
     )
     .then(({ status, data }) => (status === 200 ? data : []));
 
