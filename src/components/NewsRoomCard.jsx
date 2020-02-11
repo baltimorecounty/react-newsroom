@@ -18,9 +18,9 @@ const NewsRoomCard = props => {
   const published = new Date(publishDate).toLocaleDateString("en-US", options);
 
   return (
-    <Card>
+    <Card className="dg_card_alignment">
       <CardContent>
-        <div class="row justify-content-start">
+        <div class="row">
           <h3>{title}</h3>
         </div>
         <div className="d-flex col-lg-12 col-md-12 col-sm-12">
@@ -46,9 +46,7 @@ const NewsRoomCard = props => {
                 </div>
               </div>
 
-              <div class="row">
-                <p>{articleSummary}</p>
-              </div>
+              <p>{articleSummary}</p>
             </div>
           </div>
         </div>
