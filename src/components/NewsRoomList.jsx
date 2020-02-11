@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FilterList from "./FilterList";
 import NewsRoomCard from "./NewsRoomCard";
+import newsItems from "../files/NewsItems";
 import ListCounter from "./ListCounter";
 import useNewsRoom from "../hooks/useNewsRoom";
 import { Alert, Button } from "@baltimorecounty/dotgov-components";
@@ -42,7 +43,7 @@ const NewsRoomList = () => {
             />
           </div>
           <FilterList
-            items={filteredItems.length > 0 ? filteredItems : newsRoomItems}
+            items={newsItems}
             renderItem={props => (
               <div
                 className="d-flex col-lg-12 col-md-12 col-sm-12"
