@@ -18,7 +18,7 @@ const NewsRoomCard = props => {
   const published = new Date(publishDate).toLocaleDateString("en-US", options);
 
   return (
-    <Card className="dg_card_alignment">
+    <Card className="text-left">
       <CardContent>
         <div class="row">
           <h3>{title}</h3>

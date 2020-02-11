@@ -3,10 +3,6 @@
   color: gray;
 }
 
-.dg_card_alignment {
-  text-align: left;
-}
-
 .dg_card_date-author {
   border-right: 2px solid gray;
   padding-right: 20px;
