@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FilterList from "./FilterList";
 import NewsRoomCard from "./NewsRoomCard";
-import newsItems from "../files/NewsItems";
+import { newsItems } from "../files/NewsItems";
 import ListCounter from "./ListCounter";
 import useNewsRoom from "../hooks/useNewsRoom";
 import { Alert, Button } from "@baltimorecounty/dotgov-components";
