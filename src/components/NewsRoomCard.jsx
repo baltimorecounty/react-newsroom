@@ -48,8 +48,8 @@ const NewsRoomCard = props => {
         </div>
       </CardContent>
       <CardFooter>
-        <div class="row justify-content-end">
-          <div class="col-lg-2 col-md-2 col-sm-2">
+        <div className="row justify-content-end">
+          <div className="col-lg-2 col-md-2 col-sm-2">
             <Button text="Details" />
           </div>
         </div>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import FilterList from "./FilterList";
-import { newsItems } from "../files/NewsItems";
 import NewsRoomCard from "./NewsRoomCard";
 import ListCounter from "./ListCounter";
 import useNewsRoom from "../hooks/useNewsRoom";
@@ -10,8 +9,10 @@ const NewsRoomList = () => {
   const { hasError, newsRoomItems = [], isLoading } = useNewsRoom();
   const [filteredItems, setFilteredItems] = useState([]);
 
-  console.log(newsRoomItems);
-  const handleLoadMore = clickEvent => {};
+  const handleLoadMoreNewsItems = clickEvent => {
+    setFilteredItems([]);
+    console.log("Load More Results");
+  };
 
   if (hasError) {
     return (
@@ -45,7 +46,7 @@ const NewsRoomList = () => {
             renderItem={props => (
               <div
                 className="d-flex col-lg-12 col-md-12 col-sm-12"
-                key={props.Id}
+                key={props.id}
               >
                 <NewsRoomCard {...props} />
               </div>
@@ -62,7 +63,11 @@ const NewsRoomList = () => {
           }
           total={newsRoomItems.length}
         />
-        <Button text="Load More" onClick={handleLoadMore} />
+        <Button
+          type="submit"
+          text="Load More"
+          onClick={handleLoadMoreNewsItems}
+        />
       </div>
     </React.Fragment>
   );
