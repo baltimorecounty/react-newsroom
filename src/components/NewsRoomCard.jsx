@@ -39,9 +39,7 @@ const NewsRoomCard = props => {
           <div className="col-md-3 col-xs-12">{imageSection}</div>
           <div className="col-md-9 col-xs-12">
             <p>
-              <span>{published}</span>{" "}
-              <span className="dg_card_date-author_separator">|</span>{" "}
-              <span>{author}</span>
+              <span>{published}</span> | <span>{author}</span>
             </p>
             <p>{articleSummary}</p>
           </div>
