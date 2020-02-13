@@ -35,11 +35,7 @@ const configValues = {
 setConfig(configValues);
 
 function App() {
-  return (
-    <div>
-      <NewsRoomList />
-    </div>
-  );
+  return <NewsRoomList />;
 }
 
 export default App;

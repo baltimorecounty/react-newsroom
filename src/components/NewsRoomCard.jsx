@@ -7,7 +7,15 @@ import {
 import React from "react";
 
 const NewsRoomCard = props => {
-  const { publishDate, title, author, articleSummary, thumbnail, url } = props;
+  const {
+    publishDate,
+    title,
+    author,
+    articleSummary,
+    thumbnail,
+    url,
+    category
+  } = props;
 
   const options = {
     year: "numeric",
@@ -17,35 +25,61 @@ const NewsRoomCard = props => {
 
   const published = new Date(publishDate).toLocaleDateString("en-US", options);
 
+  const imageSection = !thumbnail ? (
+    <img className="dg_image left" src={thumbnail} alt={category.label} />
+  ) : (
+    <i class="far fa-newspaper fa-5x dg_news_icon"></i>
+  );
+
+  const dateSection = (
+    <React.Fragment>
+      <div className="dg_card_date-author_separator">
+        <p>{published}</p>
+      </div>
+    </React.Fragment>
+  );
+
+  const authorSection = (
+    <React.Fragment>
+      <div>
+        <p>{author}</p>
+      </div>
+    </React.Fragment>
+  );
+
+  const newsSummary = (
+    <React.Fragment>
+      <p>{articleSummary}</p>
+    </React.Fragment>
+  );
+
   return (
     <Card className="text-left">
       <CardContent>
-        <div class="row">
-          <h3>{title}</h3>
-        </div>
-        <div className="d-flex col-12">
+        <div className="contanier">
           <div class="row">
-            <div id="dg_main-content">
-              <img
-                className="dg_image left"
-                src="//baltimorecountymd.gov/sebin/t/t/homepage-county-executive.jpg"
-                alt="County Executive Olzsewski delivers a speech."
-              />
-              <div className="d-flex dg_card_date-author">
-                <div className="dg_card_date-author_separator">
-                  <p>{published}</p>
-                </div>
-                <div>
-                  <p>{author}</p>
+            <h3>{title}</h3>
+          </div>
+          <div className="row">
+            <div className="col-lg-3 col-md-6 col-sm-9 col-xs-12">
+              {imageSection}
+            </div>
+            <div className="col-lg-9 col-md-12">
+              <div className="row">
+                <div className="col-lg-2 col-md-4 col-xs-2">{dateSection}</div>
+                <div className="col-lg-10 col-md-8 col-xs-2">
+                  {authorSection}
                 </div>
               </div>
-              <p>{articleSummary}</p>
+              <div className="row">
+                <div className="col-12">{newsSummary}</div>
+              </div>
             </div>
           </div>
         </div>
       </CardContent>
       <CardFooter>
-        <div class="row justify-content-end">
+        <div class="row offset-lg-10 offset-md-8 offset-xs-6">
           <div class="col-2">
             <Button text="Details" />
           </div>

@@ -1,18 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import FilterList from "./FilterList";
 import NewsRoomCard from "./NewsRoomCard";
-import { newsItems } from "../files/NewsItems";
-import ListCounter from "./ListCounter";
+
 import useNews from "../hooks/useNews";
 import { Alert } from "@baltimorecounty/dotgov-components";
 
 const NewsRoomList = () => {
   const { hasError, newsRoomItems = [], isLoading } = useNews();
-  const [filteredItems, setFilteredItems] = useState([]);
-
-  const handleLoadMoreNewsItems = clickEvent => {
-    setFilteredItems([]);
-  };
 
   if (hasError) {
     return (
@@ -32,12 +26,9 @@ const NewsRoomList = () => {
       ) : (
         <div className="row">
           <FilterList
-            items={filteredItems.length > 0 ? filteredItems : newsRoomItems}
+            items={newsRoomItems}
             renderItem={props => (
-              <div
-                className="d-flex col-lg-12 col-md-12 col-sm-12"
-                key={props.id}
-              >
+              <div className="d-flex col-12" key={props.id}>
                 <NewsRoomCard {...props} />
               </div>
             )}
