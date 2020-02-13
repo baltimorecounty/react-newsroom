@@ -28,7 +28,7 @@ const NewsRoomCard = props => {
   const imageSection = thumbnail ? (
     <img className="dg_image left" src={thumbnail} alt={category.label} />
   ) : (
-    <i className="far fa-newspaper fa-5x dg_news_icon"></i>
+    <i className="far fa-newspaper fa-3x dg_news_icon"></i>
   );
 
   const dateSection = (
