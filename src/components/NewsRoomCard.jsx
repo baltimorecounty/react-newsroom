@@ -32,26 +32,18 @@ const NewsRoomCard = props => {
   );
 
   const dateSection = (
-    <React.Fragment>
-      <div className="dg_card_date-author_separator">
-        <p>{published}</p>
-      </div>
-    </React.Fragment>
+    <div className="dg_card_date-author_separator">
+      <p>{published}</p>
+    </div>
   );
 
   const authorSection = (
-    <React.Fragment>
-      <div>
-        <p>{author}</p>
-      </div>
-    </React.Fragment>
+    <div>
+      <p>{author}</p>
+    </div>
   );
 
-  const newsSummary = (
-    <React.Fragment>
-      <p>{articleSummary}</p>
-    </React.Fragment>
-  );
+  const newsSummary = <p>{articleSummary}</p>;
 
   return (
     <Card className="text-left">
