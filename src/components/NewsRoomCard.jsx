@@ -24,11 +24,11 @@ const NewsRoomCard = props => {
   };
 
   const published = new Date(publishDate).toLocaleDateString("en-US", options);
-
+  console.log(thumbnail);
   const imageSection = thumbnail ? (
     <img className="dg_image left" src={thumbnail} alt={category.label} />
   ) : (
-    <i class="far fa-newspaper fa-5x dg_news_icon"></i>
+    <i className="far fa-newspaper fa-5x dg_news_icon"></i>
   );
 
   const dateSection = (
@@ -57,7 +57,7 @@ const NewsRoomCard = props => {
     <Card className="text-left">
       <CardContent>
         <div className="contanier">
-          <div class="row">
+          <div className="row">
             <h3>{title}</h3>
           </div>
           <div className="row">
@@ -79,9 +79,9 @@ const NewsRoomCard = props => {
         </div>
       </CardContent>
       <CardFooter>
-        <div class="row offset-lg-10 offset-md-8 offset-xs-6">
-          <div class="col-2">
-            <Button text="Details" />
+        <div className="row offset-lg-10 offset-md-8 offset-xs-6">
+          <div className="col-2">
+            <Button text="Details" href={url} />
           </div>
         </div>
       </CardFooter>
