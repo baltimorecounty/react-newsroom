@@ -25,7 +25,7 @@ const NewsRoomCard = props => {
 
   const published = new Date(publishDate).toLocaleDateString("en-US", options);
 
-  const imageSection = !thumbnail ? (
+  const imageSection = thumbnail ? (
     <img className="dg_image left" src={thumbnail} alt={category.label} />
   ) : (
     <i class="far fa-newspaper fa-5x dg_news_icon"></i>
