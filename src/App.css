@@ -1,10 +1,5 @@
-.dg_list_counter {
-  font-style: italic;
-  color: gray;
-}
-
 .dg_card_date-author_separator {
-  border-right: 2px solid gray;
+  color: gray;
 }
 
 .dg_news_icon {
