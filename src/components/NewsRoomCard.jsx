@@ -24,7 +24,7 @@ const NewsRoomCard = props => {
   };
 
   const published = new Date(publishDate).toLocaleDateString("en-US", options);
-  console.log(thumbnail);
+
   const imageSection = thumbnail ? (
     <img className="dg_image left" src={thumbnail} alt={category.label} />
   ) : (
@@ -73,7 +73,7 @@ const NewsRoomCard = props => {
       <CardFooter>
         <div className="row offset-lg-10 offset-md-8 offset-xs-6">
           <div className="col-2">
-            <Button text="Details" href={url} />
+            <Button as="a" text="Details" href={url} />
           </div>
         </div>
       </CardFooter>
