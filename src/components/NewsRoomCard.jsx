@@ -13,8 +13,8 @@ const NewsRoomCard = props => {
     author,
     articleSummary,
     thumbnail,
-    url,
-    category
+    thumbnailAltText,
+    url
   } = props;
 
   const options = {
@@ -26,7 +26,7 @@ const NewsRoomCard = props => {
   const published = new Date(publishDate).toLocaleDateString("en-US", options);
 
   const imageSection = thumbnail ? (
-    <img className="dg_image left" src={thumbnail} alt={category.label} />
+    <img className="dg_image left" src={thumbnail} alt={thumbnailAltText} />
   ) : (
     <i className="far fa-newspaper fa-3x dg_news_icon"></i>
   );
