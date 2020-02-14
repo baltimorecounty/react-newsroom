@@ -3,6 +3,7 @@ import "./App.css";
 
 import { Config } from "@baltimorecounty/javascript-utilities";
 import React from "react";
+import NewsRoomList from "./components/NewsRoomList";
 
 const { setConfig } = Config;
 
@@ -34,7 +35,7 @@ const configValues = {
 setConfig(configValues);
 
 function App() {
-  return <div className="bc_services-list-app"></div>;
+  return <NewsRoomList />;
 }
 
 export default App;
