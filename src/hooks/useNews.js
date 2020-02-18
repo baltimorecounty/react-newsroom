@@ -9,8 +9,8 @@ const useNews = props => {
 
   useEffect(() => {
     GetNews()
-      .then(response => {
-        setNewsItems(response);
+      .then(({ records }) => {
+        setNewsItems(records);
       })
       .catch(() => {
         setHasError(true);
