@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import FilterList from "./FilterList";
 import NewsRoomCard from "./NewsRoomCard";
 
 import useNews from "../hooks/useNews";
-import { Alert } from "@baltimorecounty/dotgov-components";
+import { Alert, Button } from "@baltimorecounty/dotgov-components";
 
 const NewsRoomList = () => {
-  const { hasError, newsRoomItems = [], isLoading } = useNews();
+  const [newsRoomEndPoint, setNewsRoomEndPoint] = useState("/api/news");
+
+  const {
+    hasError,
+    newsRoomItems = [],
+    isLoading,
+    newsRoomMetaData
+  } = useNews({ endPoint: newsRoomEndPoint });
+
+  const handlesLoadMore = () => {
+    const { next } = newsRoomMetaData.links;
+    setNewsRoomEndPoint(next);
+  };
 
   if (hasError) {
     return (
@@ -33,6 +45,7 @@ const NewsRoomList = () => {
               </div>
             )}
           />
+          <Button text="Load More" onClick={handlesLoadMore} />
         </div>
       )}
     </React.Fragment>
