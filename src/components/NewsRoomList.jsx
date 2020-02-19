@@ -13,7 +13,7 @@ const NewsRoomList = () => {
     newsRoomLoadMoreEndPoint
   } = useNews({ endPoint: "/api/news" });
 
-  const handlesLoadMore = () => {
+  const handlesLoadMoreNews = () => {
     setMoreNewsRoomItems([...newsRoomItems, newsRoomItems]);
   };
 
@@ -45,7 +45,7 @@ const NewsRoomList = () => {
             )}
           />
           {newsRoomLoadMoreEndPoint ? (
-            <Button text="Load More" onClick={handlesLoadMore} />
+            <Button text="Load More" onClick={handlesLoadMoreNews} />
           ) : null}
         </div>
       )}
