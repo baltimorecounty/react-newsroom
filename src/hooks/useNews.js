@@ -4,7 +4,7 @@ import { GetNews } from "../services/ApiService";
 
 const useNews = props => {
   const [newsRoomItems, setNewsItems] = useState([]);
-  const [newsRoomMetaData, setNewsRoomMetaData] = useState([]);
+  const [newsRoomLoadMoreEndPoint, setNewsRoomLoadMoreEndPoint] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const { endPoint } = props;
@@ -13,7 +13,7 @@ const useNews = props => {
     GetNews(endPoint)
       .then(({ metaData, records }) => {
         setNewsItems(records);
-        setNewsRoomMetaData(metaData);
+        setNewsRoomLoadMoreEndPoint(metaData.links.next);
       })
       .catch(() => {
         setHasError(true);
@@ -23,7 +23,7 @@ const useNews = props => {
       });
   }, [endPoint]);
 
-  return { hasError, newsRoomItems, isLoading, newsRoomMetaData };
+  return { hasError, newsRoomItems, isLoading, newsRoomLoadMoreEndPoint };
 };
 
 export default useNews;

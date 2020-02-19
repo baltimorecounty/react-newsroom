@@ -1,23 +1,20 @@
 import React, { useState } from "react";
 import FilterList from "./FilterList";
 import NewsRoomCard from "./NewsRoomCard";
-
 import useNews from "../hooks/useNews";
 import { Alert, Button } from "@baltimorecounty/dotgov-components";
 
 const NewsRoomList = () => {
-  const [newsRoomEndPoint, setNewsRoomEndPoint] = useState("/api/news");
-
+  const [moreNewsRoomItems, setMoreNewsRoomItems] = useState([]);
   const {
     hasError,
     newsRoomItems = [],
     isLoading,
-    newsRoomMetaData
-  } = useNews({ endPoint: newsRoomEndPoint });
+    newsRoomLoadMoreEndPoint
+  } = useNews({ endPoint: "/api/news" });
 
   const handlesLoadMore = () => {
-    const { next } = newsRoomMetaData.links;
-    setNewsRoomEndPoint(next);
+    setMoreNewsRoomItems([...newsRoomItems, newsRoomItems]);
   };
 
   if (hasError) {
@@ -38,14 +35,18 @@ const NewsRoomList = () => {
       ) : (
         <div className="row">
           <FilterList
-            items={newsRoomItems}
+            items={
+              moreNewsRoomItems.length > 0 ? moreNewsRoomItems : newsRoomItems
+            }
             renderItem={props => (
               <div className="d-flex col-12" key={props.id}>
                 <NewsRoomCard {...props} />
               </div>
             )}
           />
-          <Button text="Load More" onClick={handlesLoadMore} />
+          {newsRoomLoadMoreEndPoint ? (
+            <Button text="Load More" onClick={handlesLoadMore} />
+          ) : null}
         </div>
       )}
     </React.Fragment>
