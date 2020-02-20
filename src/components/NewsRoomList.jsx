@@ -56,11 +56,11 @@ const NewsRoomList = () => {
               )}
             />
           </div>
-          <div>
+          <div className="mb-5">
             <NewsCounter />
 
             {loadMoreEndPoint ? (
-              <Button text="Load More" onClick={handlesLoadMoreNews} />
+              <Button class="" text="Load More" onClick={handlesLoadMoreNews} />
             ) : null}
           </div>
         </>
