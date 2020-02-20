@@ -1,12 +1,31 @@
 import React from "react";
 import FilterList from "./FilterList";
 import NewsRoomCard from "./NewsRoomCard";
-
 import useNews from "../hooks/useNews";
-import { Alert } from "@baltimorecounty/dotgov-components";
+import ListCounter from "./ListCounter";
+import { Alert, Button } from "@baltimorecounty/dotgov-components";
 
 const NewsRoomList = () => {
-  const { hasError, newsRoomItems = [], isLoading } = useNews();
+  const [
+    {
+      hasError,
+      newsRoomItems = [],
+      isLoading,
+      loadMoreEndPoint,
+      newsRoomTotalRecords
+    },
+    { setNewsRoomEndPoint }
+  ] = useNews("/api/news");
+
+  const handlesLoadMoreNews = () => {
+    setNewsRoomEndPoint(loadMoreEndPoint);
+  };
+
+  const NewsCounter = props => {
+    return (
+      <ListCounter count={newsRoomItems.length} total={newsRoomTotalRecords} />
+    );
+  };
 
   if (hasError) {
     return (
@@ -25,6 +44,7 @@ const NewsRoomList = () => {
         <p>Loading Baltimore County News...</p>
       ) : (
         <div className="row">
+          <NewsCounter />
           <FilterList
             items={newsRoomItems}
             renderItem={props => (
@@ -33,6 +53,13 @@ const NewsRoomList = () => {
               </div>
             )}
           />
+          <div className="col-12">
+            <NewsCounter />
+          </div>
+
+          {loadMoreEndPoint ? (
+            <Button text="Load More" onClick={handlesLoadMoreNews} />
+          ) : null}
         </div>
       )}
     </React.Fragment>
