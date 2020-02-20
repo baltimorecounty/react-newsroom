@@ -1,9 +1,10 @@
-import React from "react";
-import FilterList from "./FilterList";
-import NewsRoomCard from "./NewsRoomCard";
-import useNews from "../hooks/useNews";
-import ListCounter from "./ListCounter";
 import { Alert, Button } from "@baltimorecounty/dotgov-components";
+
+import FilterList from "./FilterList";
+import ListCounter from "./ListCounter";
+import NewsRoomCard from "./NewsRoomCard";
+import React from "react";
+import useNews from "../hooks/useNews";
 
 const NewsRoomList = () => {
   const [
@@ -43,24 +44,26 @@ const NewsRoomList = () => {
       {isLoading ? (
         <p>Loading Baltimore County News...</p>
       ) : (
-        <div className="row">
+        <>
           <NewsCounter />
-          <FilterList
-            items={newsRoomItems}
-            renderItem={props => (
-              <div className="d-flex col-12" key={props.id}>
-                <NewsRoomCard {...props} />
-              </div>
-            )}
-          />
-          <div className="col-12">
-            <NewsCounter />
+          <div className="row">
+            <FilterList
+              items={newsRoomItems}
+              renderItem={props => (
+                <div className="d-flex col-12" key={props.id}>
+                  <NewsRoomCard {...props} />
+                </div>
+              )}
+            />
           </div>
+          <div className="mb-5">
+            <NewsCounter />
 
-          {loadMoreEndPoint ? (
-            <Button text="Load More" onClick={handlesLoadMoreNews} />
-          ) : null}
-        </div>
+            {loadMoreEndPoint ? (
+              <Button text="Load More" onClick={handlesLoadMoreNews} />
+            ) : null}
+          </div>
+        </>
       )}
     </React.Fragment>
   );
