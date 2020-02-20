@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FilterList from "./FilterList";
 import NewsRoomCard from "./NewsRoomCard";
 import useNews from "../hooks/useNews";
+import ListCounter from "./ListCounter";
 import { Alert, Button } from "@baltimorecounty/dotgov-components";
 
 const NewsRoomList = () => {
@@ -10,7 +11,8 @@ const NewsRoomList = () => {
     hasError,
     newsRoomItems = [],
     isLoading,
-    newsRoomLoadMoreEndPoint
+    newsRoomLoadMoreEndPoint,
+    newsRoomTotalRecords
   } = useNews({ endPoint: "/api/news" });
 
   const handlesLoadMoreNews = () => {
@@ -34,6 +36,14 @@ const NewsRoomList = () => {
         <p>Loading Baltimore County News...</p>
       ) : (
         <div className="row">
+          <ListCounter
+            count={
+              moreNewsRoomItems.length === 0
+                ? newsRoomItems.length
+                : moreNewsRoomItems.length
+            }
+            total={newsRoomTotalRecords}
+          />
           <FilterList
             items={
               moreNewsRoomItems.length > 0 ? moreNewsRoomItems : newsRoomItems
@@ -45,7 +55,17 @@ const NewsRoomList = () => {
             )}
           />
           {newsRoomLoadMoreEndPoint ? (
-            <Button text="Load More" onClick={handlesLoadMoreNews} />
+            <div>
+              <ListCounter
+                count={
+                  moreNewsRoomItems.length === 0
+                    ? newsRoomItems.length
+                    : moreNewsRoomItems.length
+                }
+                total={newsRoomTotalRecords}
+              />
+              <Button text="Load More" onClick={handlesLoadMoreNews} />
+            </div>
           ) : null}
         </div>
       )}
