@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
-
 import { GetNews } from "../services/ApiService";
 
-const useNews = props => {
+const useNews = initialEndPoint => {
   const [newsRoomItems, setNewsItems] = useState([]);
   const [newsRoomLoadMoreEndPoint, setNewsRoomLoadMoreEndPoint] = useState([]);
   const [newsRoomTotalRecords, setNewsRoomTotalRecords] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const { endPoint } = props;
+  const [newsRoomEndPoint, setNewsRoomEndPoint] = useState(initialEndPoint);
 
   useEffect(() => {
-    GetNews(endPoint)
+    GetNews(newsRoomEndPoint)
       .then(({ metaData, records }) => {
-        console.log(metaData.totalRecords);
-        setNewsItems(records);
+        setNewsItems(items => [...items, ...records]);
         setNewsRoomLoadMoreEndPoint(metaData.links.next);
         setNewsRoomTotalRecords(metaData.totalRecords);
       })
@@ -24,15 +22,20 @@ const useNews = props => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [endPoint]);
+  }, [newsRoomEndPoint]);
 
-  return {
-    hasError,
-    newsRoomItems,
-    isLoading,
-    newsRoomLoadMoreEndPoint,
-    newsRoomTotalRecords
-  };
+  return [
+    {
+      hasError,
+      newsRoomItems,
+      isLoading,
+      newsRoomLoadMoreEndPoint,
+      newsRoomTotalRecords
+    },
+    {
+      setNewsRoomEndPoint
+    }
+  ];
 };
 
 export default useNews;

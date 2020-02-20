@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import FilterList from "./FilterList";
 import NewsRoomCard from "./NewsRoomCard";
 import useNews from "../hooks/useNews";
@@ -6,17 +6,25 @@ import ListCounter from "./ListCounter";
 import { Alert, Button } from "@baltimorecounty/dotgov-components";
 
 const NewsRoomList = () => {
-  const [moreNewsRoomItems, setMoreNewsRoomItems] = useState([]);
-  const {
-    hasError,
-    newsRoomItems = [],
-    isLoading,
-    newsRoomLoadMoreEndPoint,
-    newsRoomTotalRecords
-  } = useNews({ endPoint: "/api/news" });
+  const [
+    {
+      hasError,
+      newsRoomItems = [],
+      isLoading,
+      newsRoomLoadMoreEndPoint,
+      newsRoomTotalRecords
+    },
+    { setNewsRoomEndPoint }
+  ] = useNews("/api/news");
 
   const handlesLoadMoreNews = () => {
-    setMoreNewsRoomItems([...newsRoomItems, newsRoomItems]);
+    setNewsRoomEndPoint(newsRoomLoadMoreEndPoint);
+  };
+
+  const NewsCounter = props => {
+    return (
+      <ListCounter count={newsRoomItems.length} total={newsRoomTotalRecords} />
+    );
   };
 
   if (hasError) {
@@ -36,36 +44,21 @@ const NewsRoomList = () => {
         <p>Loading Baltimore County News...</p>
       ) : (
         <div className="row">
-          <ListCounter
-            count={
-              moreNewsRoomItems.length === 0
-                ? newsRoomItems.length
-                : moreNewsRoomItems.length
-            }
-            total={newsRoomTotalRecords}
-          />
+          <NewsCounter />
           <FilterList
-            items={
-              moreNewsRoomItems.length > 0 ? moreNewsRoomItems : newsRoomItems
-            }
+            items={newsRoomItems}
             renderItem={props => (
               <div className="d-flex col-12" key={props.id}>
                 <NewsRoomCard {...props} />
               </div>
             )}
           />
+          <div className="col-12">
+            <NewsCounter />
+          </div>
+
           {newsRoomLoadMoreEndPoint ? (
-            <div>
-              <ListCounter
-                count={
-                  moreNewsRoomItems.length === 0
-                    ? newsRoomItems.length
-                    : moreNewsRoomItems.length
-                }
-                total={newsRoomTotalRecords}
-              />
-              <Button text="Load More" onClick={handlesLoadMoreNews} />
-            </div>
+            <Button text="Load More" onClick={handlesLoadMoreNews} />
           ) : null}
         </div>
       )}
