@@ -11,14 +11,14 @@ const NewsRoomList = () => {
       hasError,
       newsRoomItems = [],
       isLoading,
-      newsRoomLoadMoreEndPoint,
+      loadMoreEndPoint,
       newsRoomTotalRecords
     },
     { setNewsRoomEndPoint }
   ] = useNews("/api/news");
 
   const handlesLoadMoreNews = () => {
-    setNewsRoomEndPoint(newsRoomLoadMoreEndPoint);
+    setNewsRoomEndPoint(loadMoreEndPoint);
   };
 
   const NewsCounter = props => {
@@ -57,7 +57,7 @@ const NewsRoomList = () => {
             <NewsCounter />
           </div>
 
-          {newsRoomLoadMoreEndPoint ? (
+          {loadMoreEndPoint ? (
             <Button text="Load More" onClick={handlesLoadMoreNews} />
           ) : null}
         </div>
