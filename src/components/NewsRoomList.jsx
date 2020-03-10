@@ -1,10 +1,10 @@
 import { Alert, Button, Checkbox } from "@baltimorecounty/dotgov-components";
-
 import FilterList from "./FilterList";
 import ListCounter from "./ListCounter";
 import NewsRoomCard from "./NewsRoomCard";
-import React from "react";
+import React, { useState } from "react";
 import useNews from "../hooks/useNews";
+import CategoriesFilterCollapse from './CategoriesFilterCollapse';
 
 const NewsRoomList = () => {
   const [
@@ -17,7 +17,8 @@ const NewsRoomList = () => {
     },
     { setNewsRoomEndPoint, setnewsRoomFilters }
   ] = useNews("/api/news");
-
+  const [isFiltering, setIsFiltering] = useState(false);
+  const [filteredItems, setFilteredItems] = useState([]);
   const test = onCick => {
     const { value } = onCick.target;
     setnewsRoomFilters(`?category.value=${value}`);
@@ -43,7 +44,7 @@ const NewsRoomList = () => {
       </Alert>
     );
   }
-
+  const hasFilteredResults = !(isFiltering && filteredItems.length === 0);
   return (
     <React.Fragment>
       {isLoading ? (
