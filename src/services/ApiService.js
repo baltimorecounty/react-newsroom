@@ -19,19 +19,21 @@ const BuildEndPoint = props => {
   const { endPoint, filters } = props;
 
   const checkedItem = filters.filter(item => item.checked);
-  var filterQuery = "?";
   var prevType;
-  for (var key in checkedItem) {
-    const { type, value } = checkedItem[key];
-    filterQuery =
-      prevType === undefined
-        ? filterQuery.concat(`${type}.value=${value}`)
-        : prevType === type.toLocaleLowerCase()
-        ? filterQuery.concat(`,${value}`)
-        : filterQuery.concat(`& ${type}=${value}`);
 
+  const filterQuery = `?${checkedItem.map(item => {
+    const { type, value } = item;
+    var filterConcat = "";
+    const filterItems =
+      prevType === undefined
+        ? filterConcat.concat(`${type}.value=${value}`)
+        : prevType === type.toLocaleLowerCase()
+        ? filterConcat.concat(`,${value}`)
+        : filterConcat.concat(`& ${type}=${value}`);
     prevType = type.toLocaleLowerCase();
-  }
+    return filterItems;
+  })}`;
+
   const url = `https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}${filterQuery}`;
 
   return url;
