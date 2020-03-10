@@ -1,4 +1,4 @@
-import { Alert, Button, Checkbox } from "@baltimorecounty/dotgov-components";
+import { Alert, Button } from "@baltimorecounty/dotgov-components";
 import FilterList from "./FilterList";
 import ListCounter from "./ListCounter";
 import NewsRoomCard from "./NewsRoomCard";
@@ -11,14 +11,13 @@ const NewsRoomList = () => {
     {
       hasError,
       newsRoomItems = [],
+      newsRoomItemsFiltered = [],
       isLoading,
       loadMoreEndPoint,
       newsRoomTotalRecords
     },
-    { setNewsRoomEndPoint, setnewsRoomFilters }
+    { setNewsRoomEndPoint, setNewsRoomFilters }
   ] = useNews("/api/news");
-  const [isFiltering, setIsFiltering] = useState(false);
-  const [filteredItems, setFilteredItems] = useState([]);
   const [filterItems, setFilterItems] = useState([
     {
       type: "category",
@@ -32,7 +31,7 @@ const NewsRoomList = () => {
     let finalItems = [];
     const checkedItem = itemUpdated.filter(item => item.checked);
     //console.log(checkedItem);
-    setIsFiltering(true);
+   // setIsFiltering(true);
     const items = [...newsRoomItems];
     var concatString = "?";
     var prevType;
@@ -51,28 +50,21 @@ const NewsRoomList = () => {
     }
     // console.log(concatString);
     // setFilteredItems(finalItems);
-    setnewsRoomFilters(`${concatString}`);
+   // setnewsRoomFilters(`${concatString}`);
     //console.log(finalItems)
   };
 
   const handleNewsRoomFilterChange = changeEvent => {
-    setIsFiltering(false);
     const { checked, name } = changeEvent.target;
     const itemUpdated = filterItems.map(item => {
-      if (item.name.toLocaleLowerCase() === name.toLocaleLowerCase())
+      if (item.name.toLocaleLowerCase() === name.toLocaleLowerCase()) {
         return { ...item, checked: checked };
+      }
+
       return item;
     });
     setFilterItems(itemUpdated);
-    const checkedCount = itemUpdated.filter(item => item.checked).length;
-    filterServiceList(itemUpdated);
-    // const isTrue =
-    //   checkedCount === 0 || checkedCount === itemUpdated.length ? false : true;
-    // isTrue ? filterServiceList(itemUpdated) : setFilteredItems([]);
-  };
-  const test = onCick => {
-    const { value } = onCick.target;
-    setnewsRoomFilters(`?category.value=${value}`);
+    setNewsRoomFilters(itemUpdated.filter(item => item.checked === true));
   };
 
   const handlesLoadMoreNews = () => {
@@ -95,7 +87,7 @@ const NewsRoomList = () => {
       </Alert>
     );
   }
-  //  const hasFilteredResults = !(isFiltering && filteredItems.length === 0);
+  console.log(newsRoomItems);
   return (
     <React.Fragment>
       {isLoading ? (
@@ -113,16 +105,23 @@ const NewsRoomList = () => {
               />
             </div>
             <div className="col-md-9 col-xs-12">
-              <div className="row">
-                <FilterList
-                  items={newsRoomItems}
-                  renderItem={props => (
-                    <div key={props.id}>
-                      <NewsRoomCard {...props} />
-                    </div>
-                  )}
-                />
-              </div>
+              {newsRoomItems ? (
+                <div className="row">
+                  <FilterList
+                    items={
+                
+                       newsRoomItems
+                    }
+                    renderItem={props => (
+                      <div className="d-flex col-12" key={props.id}>
+                        <NewsRoomCard {...props} />
+                      </div>
+                    )}
+                  />
+                </div>
+              ) : (
+                "Sorry, no news matches your search criteria. Please change your search term and try again"
+              )}
             </div>
             <div className="mb-5">
               <NewsCounter />
