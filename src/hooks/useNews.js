@@ -8,7 +8,7 @@ const useNews = initialEndPoint => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [newsRoomEndPoint, setNewsRoomEndPoint] = useState(initialEndPoint);
-  const [newsRoomFilters, setnewsRoomFilters] = useState();
+  const [newsRoomFilters, setNewsRoomFilters] = useState();
 
   useEffect(() => {
     GetNews(newsRoomEndPoint, newsRoomFilters)
@@ -35,7 +35,7 @@ const useNews = initialEndPoint => {
     },
     {
       setNewsRoomEndPoint,
-      setnewsRoomFilters
+      setNewsRoomFilters
     }
   ];
 };

@@ -15,12 +15,12 @@ const NewsRoomList = () => {
       loadMoreEndPoint,
       newsRoomTotalRecords
     },
-    { setNewsRoomEndPoint, setnewsRoomFilters }
+    { setNewsRoomEndPoint, setNewsRoomFilters }
   ] = useNews("/api/news");
 
-  const test = onCick => {
+  const handlesFilteredNews = onCick => {
     const { value } = onCick.target;
-    setnewsRoomFilters(`?category.value=${value}`);
+    setNewsRoomFilters(`?category.value=${value}`);
   };
 
   const handlesLoadMoreNews = () => {
@@ -65,7 +65,7 @@ const NewsRoomList = () => {
               name="car-color"
               label="Is your car blue?"
               value="stories"
-              onClick={test}
+              onClick={handlesFilteredNews}
             />
           </div>
           <div className="mb-5">
