@@ -13,9 +13,7 @@ const useNews = initialEndPoint => {
   useEffect(() => {
     GetNews(newsRoomEndPoint, newsRoomFilters)
       .then(({ metaData, records }) => {
-        console.log(records);
-        console.log(newsRoomFilters);
-        newsRoomFilters===undefined? setNewsItems(items => [...records]): setNewsItems(items => [...records]);
+         setNewsItems(items => [...records]);
         setLoadMoreEndPoint(metaData.links.next);
         setNewsRoomTotalRecords(metaData.totalRecords);
       })
