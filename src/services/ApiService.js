@@ -18,10 +18,9 @@ const GetStatus = () =>
 const BuildEndPoint = props => {
   const { endPoint, filters } = props;
 
-  const checkedItem = filters.filter(item => item.checked);
   var prevType;
 
-  const filterQuery = `?${checkedItem.map(item => {
+  const filterQuery = `${filters ? "?" : ""}${filters.map(item => {
     const { type, value } = item;
     var filterConcat = "";
     const filterItems =
@@ -33,8 +32,10 @@ const BuildEndPoint = props => {
     prevType = type.toLocaleLowerCase();
     return filterItems;
   })}`;
-
+  console.log(filterQuery);
   const url = `https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}${filterQuery}`;
+
+  console.log(url);
 
   return url;
 };

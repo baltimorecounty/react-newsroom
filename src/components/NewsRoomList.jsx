@@ -11,13 +11,13 @@ const NewsRoomList = () => {
     {
       hasError,
       newsRoomItems = [],
-      newsRoomItemsFiltered = [],
       isLoading,
       loadMoreEndPoint,
       newsRoomTotalRecords
     },
     { setNewsRoomEndPoint, setNewsRoomFilters }
   ] = useNews("/api/news");
+
   const [filterItems, setFilterItems] = useState([
     {
       type: "category",
@@ -25,7 +25,9 @@ const NewsRoomList = () => {
       name: "News-Release",
       checked: false
     },
-    { type: "category", value: "stories", name: "Stories", checked: false }
+    { type: "category", value: "stories", name: "Stories", checked: false },
+    { type: "name", value: "category", name: "Author", checked: false },
+    { type: "name", value: "farts", name: "Farts", checked: false }
   ]);
 
   const handleNewsRoomFilterChange = changeEvent => {
@@ -65,17 +67,23 @@ const NewsRoomList = () => {
         <p>Loading Baltimore County News...</p>
       ) : (
         <>
-          <NewsCounter />
           <div className="row">
             <div className="col-md-3 col-xs-12">
               <CategoriesFilterCollapse
                 header="Categories"
-                id="Popular-filter"
+                id="Category-filter"
                 onChange={handleNewsRoomFilterChange}
-                items={filterItems}
+                items={filterItems.filter(item => item.type === "category")}
+              />
+              <CategoriesFilterCollapse
+                header="Name"
+                id="Name-filter"
+                onChange={handleNewsRoomFilterChange}
+                items={filterItems.filter(item => item.type === "name")}
               />
             </div>
             <div className="col-md-9 col-xs-12">
+              <NewsCounter />
               {newsRoomItems ? (
                 <div className="row">
                   <FilterList
@@ -90,13 +98,13 @@ const NewsRoomList = () => {
               ) : (
                 "Sorry, no news matches your search criteria. Please change your search term and try again"
               )}
-            </div>
-            <div className="mb-5">
-              <NewsCounter />
+              <div className="mb-5">
+                <NewsCounter />
 
-              {loadMoreEndPoint ? (
-                <Button text="Load More" onClick={handlesLoadMoreNews} />
-              ) : null}
+                {loadMoreEndPoint ? (
+                  <Button text="Load More" onClick={handlesLoadMoreNews} />
+                ) : null}
+              </div>
             </div>
           </div>
         </>
