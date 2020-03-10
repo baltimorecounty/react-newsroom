@@ -20,7 +20,7 @@ const BuildEndPoint = props => {
 
   var prevType;
 
-  const filterQuery = `${filters ? "?" : ""}${filters.map(item => {
+  const filterQuery = `${filters.length > 0 ? "?" : ""}${filters.map(item => {
     const { type, value } = item;
     var filterConcat = "";
     const filterItems =
