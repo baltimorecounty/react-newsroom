@@ -28,17 +28,12 @@ const NewsRoomList = () => {
     { type: "category", value: "stories", name: "Stories", checked: false }
   ]);
   const filterServiceList = itemUpdated => {
-    let finalItems = [];
     const checkedItem = itemUpdated.filter(item => item.checked);
-    //console.log(checkedItem);
-   // setIsFiltering(true);
-    const items = [...newsRoomItems];
     var concatString = "?";
     var prevType;
     for (var key in checkedItem) {
-      //console.log('prevType:' + prevType);
+
       const { type, value, name } = checkedItem[key];
-      //  console.log("name:" + key);
       concatString =
         prevType === undefined
           ? concatString.concat(`${type}.value=${value}`)
@@ -64,7 +59,26 @@ const NewsRoomList = () => {
       return item;
     });
     setFilterItems(itemUpdated);
-    setNewsRoomFilters(itemUpdated.filter(item => item.checked === true));
+    const checkedItem = itemUpdated.filter(item => item.checked);
+    var concatString = "?";
+    var prevType;
+    for (var key in checkedItem) {
+
+      const { type, value, name } = checkedItem[key];
+      concatString =
+        prevType === undefined
+          ? concatString.concat(`${type}.value=${value}`)
+          : prevType === type.toLocaleLowerCase()
+          ? concatString.concat(`,${value}`)
+          : concatString.concat(`& ${type}=${value}`);
+
+      prevType = checkedItem[key].type.toLocaleLowerCase();
+    }
+    // console.log(concatString);
+  
+    setNewsRoomFilters(`${concatString}`);
+    //console.log(finalItems)
+    //setNewsRoomFilters(itemUpdated.filter(item => item.checked === true));
   };
 
   const handlesLoadMoreNews = () => {
