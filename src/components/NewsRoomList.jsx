@@ -20,7 +20,7 @@ const NewsRoomList = () => {
 
   const test = onCick => {
     const { value } = onCick.target;
-    setnewsRoomFilters(`category.value=${value}`);
+    setnewsRoomFilters(`?category.value=${value}`);
   };
 
   const handlesLoadMoreNews = () => {

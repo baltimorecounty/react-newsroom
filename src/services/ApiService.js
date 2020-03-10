@@ -18,7 +18,7 @@ const GetStatus = () =>
 const GetNews = (endPoint = "/api/news", filters = "") =>
   axios
 
-    .get(`https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}?${filters}`)
+    .get(`https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}${filters}`)
     .then(({ status, data }) => (status === 200 ? data : []));
 
 export { GetStatus, GetNews };
