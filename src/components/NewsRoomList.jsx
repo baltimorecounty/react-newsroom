@@ -27,22 +27,20 @@ const NewsRoomList = () => {
     },
     { type: "category", value: "stories", name: "Stories", checked: false }
   ]);
- 
+
   const handleNewsRoomFilterChange = changeEvent => {
     const { checked, name } = changeEvent.target;
     const itemUpdated = filterItems.map(item => {
-      if (item.name.toLocaleLowerCase() === name.toLocaleLowerCase()) {
-        return { ...item, checked: checked };
-      }
-      return item;
+      return item.name.toLocaleLowerCase() === name.toLocaleLowerCase()
+        ? { ...item, checked: checked }
+        : item;
     });
     setFilterItems(itemUpdated);
     const checkedItem = itemUpdated.filter(item => item.checked);
     var concatString = "?";
     var prevType;
     for (var key in checkedItem) {
-
-      const { type, value,  } = checkedItem[key];
+      const { type, value } = checkedItem[key];
       concatString =
         prevType === undefined
           ? concatString.concat(`${type}.value=${value}`)
@@ -50,10 +48,9 @@ const NewsRoomList = () => {
           ? concatString.concat(`,${value}`)
           : concatString.concat(`& ${type}=${value}`);
 
-      prevType = checkedItem[key].type.toLocaleLowerCase();
+      prevType = type.toLocaleLowerCase();
     }
 
-  
     setNewsRoomFilters(`${concatString}`);
     //setNewsRoomFilters(itemUpdated.filter(item => item.checked === true));
   };
@@ -98,10 +95,7 @@ const NewsRoomList = () => {
               {newsRoomItems ? (
                 <div className="row">
                   <FilterList
-                    items={
-                
-                       newsRoomItems
-                    }
+                    items={newsRoomItems}
                     renderItem={props => (
                       <div className="d-flex col-12" key={props.id}>
                         <NewsRoomCard {...props} />
