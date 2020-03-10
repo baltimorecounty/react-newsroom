@@ -1,4 +1,4 @@
-import { Alert, Button } from "@baltimorecounty/dotgov-components";
+import { Alert, Button, Checkbox } from "@baltimorecounty/dotgov-components";
 
 import FilterList from "./FilterList";
 import ListCounter from "./ListCounter";
@@ -15,8 +15,13 @@ const NewsRoomList = () => {
       loadMoreEndPoint,
       newsRoomTotalRecords
     },
-    { setNewsRoomEndPoint }
+    { setNewsRoomEndPoint, setnewsRoomFilters }
   ] = useNews("/api/news");
+
+  const test = onCick => {
+    const { value } = onCick.target;
+    setnewsRoomFilters(`category.value=${value}`);
+  };
 
   const handlesLoadMoreNews = () => {
     setNewsRoomEndPoint(loadMoreEndPoint);
@@ -54,6 +59,13 @@ const NewsRoomList = () => {
                   <NewsRoomCard {...props} />
                 </div>
               )}
+            />
+            <Checkbox
+              id="car-color-blue"
+              name="car-color"
+              label="Is your car blue?"
+              value="stories"
+              onClick={test}
             />
           </div>
           <div className="mb-5">

@@ -15,9 +15,10 @@ const GetStatus = () =>
 /**
  * Get News Data from SiteExecutive structured content
  */
-const GetNews = (endPoint = "/api/news") =>
+const GetNews = (endPoint = "/api/news", filters = "") =>
   axios
-    .get(`https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}`)
+
+    .get(`https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}?${filters}`)
     .then(({ status, data }) => (status === 200 ? data : []));
 
 export { GetStatus, GetNews };

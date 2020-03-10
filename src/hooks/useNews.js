@@ -8,10 +8,12 @@ const useNews = initialEndPoint => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [newsRoomEndPoint, setNewsRoomEndPoint] = useState(initialEndPoint);
+  const [newsRoomFilters, setnewsRoomFilters] = useState();
 
   useEffect(() => {
-    GetNews(newsRoomEndPoint)
+    GetNews(newsRoomEndPoint, newsRoomFilters)
       .then(({ metaData, records }) => {
+        console.log(records);
         setNewsItems(items => [...items, ...records]);
         setLoadMoreEndPoint(metaData.links.next);
         setNewsRoomTotalRecords(metaData.totalRecords);
@@ -22,7 +24,7 @@ const useNews = initialEndPoint => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [newsRoomEndPoint]);
+  }, [newsRoomEndPoint, newsRoomFilters]);
 
   return [
     {
@@ -33,7 +35,8 @@ const useNews = initialEndPoint => {
       newsRoomTotalRecords
     },
     {
-      setNewsRoomEndPoint
+      setNewsRoomEndPoint,
+      setnewsRoomFilters
     }
   ];
 };
