@@ -20,28 +20,39 @@ const NewsRoomList = () => {
   const [isFiltering, setIsFiltering] = useState(false);
   const [filteredItems, setFilteredItems] = useState([]);
   const [filterItems, setFilterItems] = useState([
-    { type: "Category", value: "News-Release", name:"News-Release", checked: false },
-    { type: "Category", value: "Stories", name:"Stories", checked: false },
-
+    {
+      type: "category",
+      value: "releases",
+      name: "News-Release",
+      checked: false
+    },
+    { type: "category", value: "stories", name: "Stories", checked: false }
   ]);
   const filterServiceList = itemUpdated => {
     let finalItems = [];
     const checkedItem = itemUpdated.filter(item => item.checked);
-    console.log(checkedItem);
+    //console.log(checkedItem);
     setIsFiltering(true);
     const items = [...newsRoomItems];
-    
+    var concatString = "?";
+    var prevType;
     for (var key in checkedItem) {
-      const { name } = checkedItem[key];
-      finalItems.push.apply(
-        finalItems,
-        items.filter(
-          i => i.category.value.toLocaleLowerCase() === name.toLocaleLowerCase()
-        )
-      );
+      //console.log('prevType:' + prevType);
+      const { type, value, name } = checkedItem[key];
+      //  console.log("name:" + key);
+      concatString =
+        prevType === undefined
+          ? concatString.concat(`${type}.value=${value}`)
+          : prevType === type.toLocaleLowerCase()
+          ? concatString.concat(`,${value}`)
+          : concatString.concat(`& ${type}=${value}`);
+
+      prevType = checkedItem[key].type.toLocaleLowerCase();
     }
-    setFilteredItems(finalItems);
-   //console.log(finalItems)
+    // console.log(concatString);
+    // setFilteredItems(finalItems);
+    setnewsRoomFilters(`${concatString}`);
+    //console.log(finalItems)
   };
 
   const handleNewsRoomFilterChange = changeEvent => {
@@ -84,7 +95,7 @@ const NewsRoomList = () => {
       </Alert>
     );
   }
-  const hasFilteredResults = !(isFiltering && filteredItems.length === 0);
+  //  const hasFilteredResults = !(isFiltering && filteredItems.length === 0);
   return (
     <React.Fragment>
       {isLoading ? (
@@ -100,25 +111,18 @@ const NewsRoomList = () => {
                 onChange={handleNewsRoomFilterChange}
                 items={filterItems}
               />
-           
             </div>
             <div className="col-md-9 col-xs-12">
-              {hasFilteredResults ? (
-                <div className="row">
-                  <FilterList
-                    items={
-                      filteredItems.length > 0 ? filteredItems : newsRoomItems
-                    }
-                    renderItem={props => (
-                      <div key={props.id}>
-                        <NewsRoomCard {...props} />
-                      </div>
-                    )}
-                  />
-                </div>
-              ) : (
-                "Sorry, no news matches your search criteria. Please change your search term and try again"
-              )}
+              <div className="row">
+                <FilterList
+                  items={newsRoomItems}
+                  renderItem={props => (
+                    <div key={props.id}>
+                      <NewsRoomCard {...props} />
+                    </div>
+                  )}
+                />
+              </div>
             </div>
             <div className="mb-5">
               <NewsCounter />

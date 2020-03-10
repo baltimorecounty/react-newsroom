@@ -21,7 +21,7 @@ const BuildEndPoint = props => {
   const url = filters
     ? `https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}${filters}`
     : `https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}`;
-
+  console.log(url);
   return url;
 };
 
