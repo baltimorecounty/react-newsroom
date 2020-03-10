@@ -18,10 +18,22 @@ const GetStatus = () =>
 const BuildEndPoint = props => {
   const { endPoint, filters } = props;
 
-  const url = filters
-    ? `https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}${filters}`
-    : `https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}`;
-  console.log(url);
+  const checkedItem = filters.filter(item => item.checked);
+  var filterQuery = "?";
+  var prevType;
+  for (var key in checkedItem) {
+    const { type, value } = checkedItem[key];
+    filterQuery =
+      prevType === undefined
+        ? filterQuery.concat(`${type}.value=${value}`)
+        : prevType === type.toLocaleLowerCase()
+        ? filterQuery.concat(`,${value}`)
+        : filterQuery.concat(`& ${type}=${value}`);
+
+    prevType = type.toLocaleLowerCase();
+  }
+  const url = `https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}${filterQuery}`;
+
   return url;
 };
 
