@@ -28,10 +28,10 @@ const BuildEndPoint = props => {
         ? filterConcat.concat(`${type}.value=${value}`)
         : prevType === type.toLocaleLowerCase()
         ? filterConcat.concat(`,${value}`)
-        : filterConcat.concat(`& ${type}=${value}`);
+        : filterConcat.concat(` & ${type}=${value}`);
     prevType = type.toLocaleLowerCase();
     return filterItems;
-  })}`;
+  }).join('')}`;
   console.log(filterQuery);
   const url = `https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}${filterQuery}`;
 
