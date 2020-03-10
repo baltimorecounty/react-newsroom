@@ -1,4 +1,4 @@
-import { Alert, Button, Checkbox } from "@baltimorecounty/dotgov-components";
+import { Alert, Button } from "@baltimorecounty/dotgov-components";
 import FilterList from "./FilterList";
 import ListCounter from "./ListCounter";
 import NewsRoomCard from "./NewsRoomCard";
@@ -11,45 +11,25 @@ const NewsRoomList = () => {
     {
       hasError,
       newsRoomItems = [],
+      newsRoomItemsFiltered = [],
       isLoading,
       loadMoreEndPoint,
       newsRoomTotalRecords
     },
     { setNewsRoomEndPoint, setNewsRoomFilters }
   ] = useNews("/api/news");
-  const [isFiltering, setIsFiltering] = useState(false);
-  const [filteredItems, setFilteredItems] = useState([]);
+
   const [filterItems, setFilterItems] = useState([
     {
-      type: "Category",
-      value: "News-Release",
+      type: "category",
+      value: "releases",
       name: "News-Release",
       checked: false
     },
-    { type: "Category", value: "Stories", name: "Stories", checked: false }
+    { type: "category", value: "stories", name: "Stories", checked: false }
   ]);
-  const filterServiceList = itemUpdated => {
-    let finalItems = [];
-    const checkedItem = itemUpdated.filter(item => item.checked);
-    console.log(checkedItem);
-    setIsFiltering(true);
-    const items = [...newsRoomItems];
-
-    for (var key in checkedItem) {
-      const { name } = checkedItem[key];
-      finalItems.push.apply(
-        finalItems,
-        items.filter(
-          i => i.category.value.toLocaleLowerCase() === name.toLocaleLowerCase()
-        )
-      );
-    }
-    setFilteredItems(finalItems);
-    //console.log(finalItems)
-  };
 
   const handleNewsRoomFilterChange = changeEvent => {
-    setIsFiltering(false);
     const { checked, name } = changeEvent.target;
     const itemUpdated = filterItems.map(item => {
       if (item.name.toLocaleLowerCase() === name.toLocaleLowerCase()) {
@@ -59,11 +39,7 @@ const NewsRoomList = () => {
       return item;
     });
     setFilterItems(itemUpdated);
-    const checkedCount = itemUpdated.filter(item => item.checked).length;
-    filterServiceList(itemUpdated);
-  };
-  const test = onClick => {
-    const { value } = onClick.target;
+    setNewsRoomFilters(itemUpdated.filter(item => item.checked === true));
   };
 
   const handlesLoadMoreNews = () => {
@@ -86,7 +62,6 @@ const NewsRoomList = () => {
       </Alert>
     );
   }
-  const hasFilteredResults = !(isFiltering && filteredItems.length === 0);
   return (
     <React.Fragment>
       {isLoading ? (
@@ -104,14 +79,16 @@ const NewsRoomList = () => {
               />
             </div>
             <div className="col-md-9 col-xs-12">
-              {hasFilteredResults ? (
+              {newsRoomItems ? (
                 <div className="row">
                   <FilterList
                     items={
-                      filteredItems.length > 0 ? filteredItems : newsRoomItems
+                      newsRoomItemsFiltered
+                        ? newsRoomItemsFiltered
+                        : newsRoomItems
                     }
                     renderItem={props => (
-                      <div key={props.id}>
+                      <div className="d-flex col-12" key={props.id}>
                         <NewsRoomCard {...props} />
                       </div>
                     )}

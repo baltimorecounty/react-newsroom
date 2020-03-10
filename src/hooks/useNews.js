@@ -3,6 +3,7 @@ import { GetNews } from "../services/ApiService";
 
 const useNews = initialEndPoint => {
   const [newsRoomItems, setNewsItems] = useState([]);
+  const [newsRoomItemsFiltered, setNewsRoomItemsFiltered] = useState([]);
   const [loadMoreEndPoint, setLoadMoreEndPoint] = useState([]);
   const [newsRoomTotalRecords, setNewsRoomTotalRecords] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -14,6 +15,7 @@ const useNews = initialEndPoint => {
     GetNews(newsRoomEndPoint, newsRoomFilters)
       .then(({ metaData, records }) => {
         setNewsItems(items => [...items, ...records]);
+        setNewsRoomItemsFiltered(records);
         setLoadMoreEndPoint(metaData.links.next);
         setNewsRoomTotalRecords(metaData.totalRecords);
       })
@@ -29,6 +31,7 @@ const useNews = initialEndPoint => {
     {
       hasError,
       newsRoomItems,
+      newsRoomItemsFiltered,
       isLoading,
       loadMoreEndPoint,
       newsRoomTotalRecords

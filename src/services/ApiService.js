@@ -18,9 +18,11 @@ const GetStatus = () =>
 const BuildEndPoint = props => {
   const { endPoint, filters } = props;
 
-  const url = filters
-    ? `https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}${filters}`
-    : `https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}`;
+  const filterQuery = filters.map(item => {
+    return `?${item.type}.value=${item.value}`;
+  });
+
+  const url = `https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}${filterQuery}`;
 
   return url;
 };
@@ -28,7 +30,7 @@ const BuildEndPoint = props => {
 /**
  * Get News Data from SiteExecutive structured content
  */
-const GetNews = (endPoint = "/api/news", filters = "") =>
+const GetNews = (endPoint = "/api/news", filters = []) =>
   axios
     .get(BuildEndPoint({ endPoint, filters }))
     .then(({ status, data }) => (status === 200 ? data : []));
