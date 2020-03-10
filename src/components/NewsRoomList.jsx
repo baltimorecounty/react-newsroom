@@ -27,35 +27,13 @@ const NewsRoomList = () => {
     },
     { type: "category", value: "stories", name: "Stories", checked: false }
   ]);
-  const filterServiceList = itemUpdated => {
-    const checkedItem = itemUpdated.filter(item => item.checked);
-    var concatString = "?";
-    var prevType;
-    for (var key in checkedItem) {
-
-      const { type, value, name } = checkedItem[key];
-      concatString =
-        prevType === undefined
-          ? concatString.concat(`${type}.value=${value}`)
-          : prevType === type.toLocaleLowerCase()
-          ? concatString.concat(`,${value}`)
-          : concatString.concat(`& ${type}=${value}`);
-
-      prevType = checkedItem[key].type.toLocaleLowerCase();
-    }
-    // console.log(concatString);
-    // setFilteredItems(finalItems);
-   // setnewsRoomFilters(`${concatString}`);
-    //console.log(finalItems)
-  };
-
+ 
   const handleNewsRoomFilterChange = changeEvent => {
     const { checked, name } = changeEvent.target;
     const itemUpdated = filterItems.map(item => {
       if (item.name.toLocaleLowerCase() === name.toLocaleLowerCase()) {
         return { ...item, checked: checked };
       }
-
       return item;
     });
     setFilterItems(itemUpdated);
@@ -64,7 +42,7 @@ const NewsRoomList = () => {
     var prevType;
     for (var key in checkedItem) {
 
-      const { type, value, name } = checkedItem[key];
+      const { type, value,  } = checkedItem[key];
       concatString =
         prevType === undefined
           ? concatString.concat(`${type}.value=${value}`)
@@ -74,10 +52,9 @@ const NewsRoomList = () => {
 
       prevType = checkedItem[key].type.toLocaleLowerCase();
     }
-    // console.log(concatString);
+
   
     setNewsRoomFilters(`${concatString}`);
-    //console.log(finalItems)
     //setNewsRoomFilters(itemUpdated.filter(item => item.checked === true));
   };
 
@@ -101,7 +78,6 @@ const NewsRoomList = () => {
       </Alert>
     );
   }
-  console.log(newsRoomItems);
   return (
     <React.Fragment>
       {isLoading ? (
