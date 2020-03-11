@@ -22,13 +22,13 @@ const BuildEndPoint = props => {
 
   const filterQuery = `${filters.length > 0 ? "?" : ""}${filters.map(item => {
     const { type, value } = item;
-    var filterConcat = "";
+    var filterParameters = "";
     const filterItems =
       prevType === undefined
-        ? filterConcat.concat(`${type}.value=${value}`)
+        ? filterParameters.concat(`${type}.value=${value}`)
         : prevType === type.toLocaleLowerCase()
-        ? filterConcat.concat(`,${value}`)
-        : filterConcat.concat(` & ${type}=${value}`);
+        ? filterParameters.concat(`,${value}`)
+        : filterParameters.concat(` & ${type}=${value}`);
     prevType = type.toLocaleLowerCase();
     return filterItems;
   }).join('')}`;
