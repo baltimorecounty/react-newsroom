@@ -18,18 +18,20 @@ const GetStatus = () =>
 const BuildEndPoint = props => {
   const { endPoint, filters } = props;
   var prevType;
-  const filterQuery = `${filters.length > 0 ? "?" : ""}${filters.map(item => {
-    const { type, value } = item;
-    var filterParameters = "";
-    const filterItems =
-      prevType === undefined
-        ? filterParameters.concat(`${type}.value=${value}`)
-        : prevType === type.toLocaleLowerCase()
-        ? filterParameters.concat(`,${value}`)
-        : filterParameters.concat(` & ${type}=${value}`);
-    prevType = type.toLocaleLowerCase();
-    return filterItems;
-  }).join('')}`;
+  const filterQuery = `${filters.length > 0 ? "?" : ""}${filters
+    .map(item => {
+      const { type, value } = item;
+      var filterParameters = "";
+      const filterItems =
+        prevType === undefined
+          ? filterParameters.concat(`${type}.value=${value}`)
+          : prevType === type.toLocaleLowerCase()
+          ? filterParameters.concat(`,${value}`)
+          : filterParameters.concat(` & ${type}=${value}`);
+      prevType = type.toLocaleLowerCase();
+      return filterItems;
+    })
+    .join("")}`;
 
   const url = `https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}${filterQuery}`;
   return url;
