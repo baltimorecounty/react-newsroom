@@ -24,12 +24,11 @@ const BuildEndPoint = props => {
     .map(item => {
       const { type, value } = item;
       var filterParameters = "";
-      const filterItems =
-        prevType === undefined
-          ? filterParameters.concat(`${type}.value=${value}`)
-          : prevType === type.toLocaleLowerCase()
-          ? filterParameters.concat(`,${value}`)
-          : filterParameters.concat(`&${type}=${value}`);
+      const filterItems = !prevType
+        ? filterParameters.concat(`${type}.value=${value}`)
+        : prevType === type.toLocaleLowerCase()
+        ? filterParameters.concat(`,${value}`)
+        : filterParameters.concat(`&${type}=${value}`);
       prevType = type.toLocaleLowerCase();
       return filterItems;
     })

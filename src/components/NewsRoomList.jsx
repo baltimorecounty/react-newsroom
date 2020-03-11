@@ -22,12 +22,10 @@ const NewsRoomList = () => {
     {
       type: "category",
       value: "releases",
-      name: "News-Release",
+      name: "News Release",
       checked: false
     },
-    { type: "category", value: "stories", name: "Stories", checked: false },
-    { type: "name", value: "category", name: "Author", checked: false },
-    { type: "name", value: "farts", name: "Farts", checked: false }
+    { type: "category", value: "stories", name: "Stories", checked: false }
   ]);
 
   const handleNewsRoomFilterChange = changeEvent => {
@@ -74,12 +72,6 @@ const NewsRoomList = () => {
                 id="Category-filter"
                 onChange={handleNewsRoomFilterChange}
                 items={filterItems.filter(item => item.type === "category")}
-              />
-              <CategoriesFilterCollapse
-                header="Name"
-                id="Name-filter"
-                onChange={handleNewsRoomFilterChange}
-                items={filterItems.filter(item => item.type === "name")}
               />
             </div>
             <div className="col-md-9 col-xs-12">
