@@ -12,7 +12,7 @@ const NewsRoomList = () => {
     { setNewsRoomEndPoint, setNewsRoomFilters }
   ] = useNews("/api/news");
 
-  const [filterItems, setFilterItems] = useState([
+  const filterItems = [
     {
       type: "category",
       value: "releases",
@@ -20,7 +20,7 @@ const NewsRoomList = () => {
       checked: false
     },
     { type: "category", value: "stories", name: "Stories", checked: false }
-  ]);
+  ];
 
   const handleNewsRoomFilterChange = changeEvent => {
     const { checked, name } = changeEvent.target;
@@ -29,7 +29,7 @@ const NewsRoomList = () => {
         ? { ...item, checked: checked }
         : item;
     });
-    setFilterItems(itemUpdated);
+
     setNewsRoomFilters(itemUpdated.filter(item => item.checked === true));
   };
 

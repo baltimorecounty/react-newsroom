@@ -13,9 +13,8 @@ const FilterCollapse = props => {
             id={item.name}
             name={item.name}
             onChange={onChange}
-            checked={item.checked}
             label={item.name}
-            value={`${item.checked}`}
+            value={item.value}
           />
         );
       })}
