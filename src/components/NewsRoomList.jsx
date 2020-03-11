@@ -8,13 +8,7 @@ import FilterCollapse from "./FilterCollapse";
 
 const NewsRoomList = () => {
   const [
-    {
-      hasError,
-      newsRoomItems = [],
-      isLoading,
-      loadMoreEndPoint,
-      newsRoomTotalRecords
-    },
+    { hasError, newsRoomItems = [], isLoading, loadMoreEndPoint },
     { setNewsRoomEndPoint, setNewsRoomFilters }
   ] = useNews("/api/news");
 
