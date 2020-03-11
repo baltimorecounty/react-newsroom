@@ -2,7 +2,7 @@ import { Alert, Button } from "@baltimorecounty/dotgov-components";
 import FilterList from "./FilterList";
 import ListCounter from "./ListCounter";
 import NewsRoomCard from "./NewsRoomCard";
-import React, { useState } from "react";
+import React from "react";
 import useNews from "../hooks/useNews";
 import FilterCollapse from "./FilterCollapse";
 
