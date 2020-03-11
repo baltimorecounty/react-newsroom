@@ -4,7 +4,7 @@ import ListCounter from "./ListCounter";
 import NewsRoomCard from "./NewsRoomCard";
 import React, { useState } from "react";
 import useNews from "../hooks/useNews";
-import CategoriesFilterCollapse from "./CategoriesFilterCollapse";
+import FilterCollapse from "./FilterCollapse";
 
 const NewsRoomList = () => {
   const [
@@ -67,7 +67,7 @@ const NewsRoomList = () => {
         <>
           <div className="row">
             <div className="col-md-3 col-xs-12">
-              <CategoriesFilterCollapse
+              <FilterCollapse
                 header="Categories"
                 id="Category-filter"
                 onChange={handleNewsRoomFilterChange}

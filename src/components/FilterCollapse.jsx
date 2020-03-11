@@ -1,7 +1,7 @@
 import React from "react";
 import { Collapse, Checkbox } from "@baltimorecounty/dotgov-components";
 
-const CategoriesFilterCollapse = props => {
+const FilterCollapse = props => {
   const { id, header, onChange, items } = props;
 
   return (
@@ -23,4 +23,4 @@ const CategoriesFilterCollapse = props => {
   );
 };
 
-export default CategoriesFilterCollapse;
+export default FilterCollapse;
