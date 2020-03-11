@@ -32,10 +32,10 @@ const BuildEndPoint = props => {
     prevType = type.toLocaleLowerCase();
     return filterItems;
   }).join('')}`;
-  console.log(filterQuery);
+
   const url = `https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}${filterQuery}`;
 
-  console.log(url);
+
 
   return url;
 };
