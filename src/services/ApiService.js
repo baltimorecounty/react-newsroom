@@ -18,6 +18,7 @@ const GetStatus = () =>
 const BuildEndPoint = props => {
   const { endPoint, filters } = props;
   var prevType;
+
   const url = `https://structuredcontentdev.bcg.ad.bcgov.us${endPoint}${
     filters.length > 0 ? "?" : ""
   }${filters
@@ -33,8 +34,6 @@ const BuildEndPoint = props => {
       return filterItems;
     })
     .join("")}`;
-
-  console.log(url);
 
   return url;
 };
