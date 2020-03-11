@@ -44,9 +44,7 @@ const NewsRoomList = () => {
   };
 
   const NewsCounter = props => {
-    return (
-      <ListCounter count={newsRoomItems.length} total={newsRoomTotalRecords} />
-    );
+    return <ListCounter count={newsRoomItems.length} />;
   };
 
   if (hasError) {

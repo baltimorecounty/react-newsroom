@@ -1,7 +1,7 @@
 import React from "react";
 
-const ListCounter = ({ count, total }) => (
-  <p className="font-italic">{`Showing ${count} of ${total} news items`}</p>
+const ListCounter = ({ count }) => (
+  <p className="font-italic">{`Showing ${count} news items`}</p>
 );
 
 export default ListCounter;
