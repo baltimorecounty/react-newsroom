@@ -5,19 +5,10 @@ import {
   CardFooter
 } from "@baltimorecounty/dotgov-components";
 
-import NewsThumbnail from "./NewsThumbnail";
 import React from "react";
 
 const NewsRoomCard = props => {
-  const {
-    publishDate,
-    title,
-    author,
-    articleSummary,
-    thumbnail,
-    thumbnailAltText,
-    url
-  } = props;
+  const { publishDate, title, author, articleSummary, url } = props;
 
   const options = {
     year: "numeric",

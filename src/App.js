@@ -4,7 +4,6 @@ import "./App.css";
 import { Config } from "@baltimorecounty/javascript-utilities";
 import { FilterList } from "@baltimorecounty/react-filter-list";
 import NewsRoomCard from "./components/NewsRoomCard";
-import NewsRoomList from "./components/NewsRoomList";
 import React from "react";
 
 const { setConfig, getValue } = Config;
