@@ -1,9 +1,10 @@
 import {
+  Button,
   Card,
   CardContent,
-  CardFooter,
-  Button
+  CardFooter
 } from "@baltimorecounty/dotgov-components";
+
 import NewsThumbnail from "./NewsThumbnail";
 import React from "react";
 
@@ -31,13 +32,7 @@ const NewsRoomCard = props => {
       <h2>{title}</h2>
       <CardContent>
         <div className="row">
-          <div className="col-md-3 col-xs-12">
-            <NewsThumbnail
-              thumbnail={thumbnail}
-              thumbnailAltText={thumbnailAltText}
-            />
-          </div>
-          <div className="col-md-9 col-xs-12 dg_news_date-author">
+          <div className="col dg_news_date-author">
             <p>
               <span>{published}</span>
               <span>{author}</span>
