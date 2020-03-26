@@ -3,6 +3,7 @@ import "./App.css";
 
 import { Config } from "@baltimorecounty/javascript-utilities";
 import { FilterList } from "@baltimorecounty/react-filter-list";
+import NewsRoomCard from "./components/NewsRoomCard";
 import NewsRoomList from "./components/NewsRoomList";
 import React from "react";
 
@@ -52,18 +53,7 @@ function App() {
       title="Baltimore County Newsroom"
       filters={filters}
       apiEndpoint={getValue("apiRoot")}
-      renderItem={({ title, articleSummary }) => (
-        <div
-          style={{
-            border: "1px solid #e0e0e0",
-            padding: "10px",
-            marginBottom: "10px"
-          }}
-        >
-          <h2>{title}</h2>
-          <p>{articleSummary}</p>
-        </div>
-      )}
+      renderItem={props => <NewsRoomCard {...props} />}
     />
   );
 }
