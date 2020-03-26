@@ -8,7 +8,7 @@ import React from "react";
 
 const { setConfig, getValue } = Config;
 
-const testApiRoot = "https://testservices.baltimorecountymd.gov/hub/api/news";
+const testApiRoot = "https://structuredcontentdev.bcg.ad.bcgov.us/api/news";
 const prodApiRoot = "https://services.baltimorecountymd.gov/hub/api/news";
 
 // HACK - the Config utiltiy does not account for beta.
