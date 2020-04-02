@@ -10,7 +10,7 @@ const NewsRoomList = () => {
   const [
     { hasError, newsRoomItems = [], isLoading, loadMoreEndPoint },
     { setNewsRoomEndPoint, setNewsRoomFilters }
-  ] = useNews("/api/news");
+  ] = useNews("/hub/news/news");
 
   const filterItems = [
     {

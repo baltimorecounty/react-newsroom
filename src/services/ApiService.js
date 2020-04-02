@@ -41,7 +41,7 @@ const BuildEndPoint = props => {
 /**
  * Get News Data from SiteExecutive structured content
  */
-const GetNews = (endPoint = "/api/news", filters = []) =>
+const GetNews = (endPoint = "hub/news/news", filters = []) =>
   axios
     .get(BuildEndPoint({ endPoint, filters }))
     .then(({ status, data }) => (status === 200 ? data : []));
