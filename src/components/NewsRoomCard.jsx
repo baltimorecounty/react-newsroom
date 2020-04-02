@@ -9,7 +9,6 @@ import React from "react";
 
 const NewsRoomCard = props => {
   const { publishDate, title, author, articleSummary, url } = props;
- console.log('url:' + url);
   const options = {
     year: "numeric",
     month: "long",
