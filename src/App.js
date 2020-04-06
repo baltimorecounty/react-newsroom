@@ -9,7 +9,7 @@ import React from "react";
 const { setConfig, getValue } = Config;
 
 const testApiRoot =
-  "https://testservices.bcg.ad.bcgov.us/api/hub/structuredContent/news";
+  "https://testservices.baltimorecountymd.gov/api/hub/structuredContent/news";
 
 const prodApiRoot =
   "https://services.baltimorecountymd.gov/api/hub/structuredContent/news";
