@@ -48,7 +48,7 @@ const filters = [
     ]
   }
 ];
-console.log("apiEndPoint:" + getValue("apiRoot"));
+
 function App() {
   return (
     <FilterList
