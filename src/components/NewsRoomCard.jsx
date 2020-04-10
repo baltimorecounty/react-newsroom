@@ -25,7 +25,7 @@ const NewsRoomCard = (props) => {
           <div className="col dg_news_date-author">
             <p>
               <span>{published}</span>
-              <span>{author ? author : "Baltimore County"}</span>
+              <span>{author || "Baltimore County"}</span>
             </p>
             <p>{articleSummary}</p>
           </div>
