@@ -2,17 +2,17 @@ import {
   Button,
   Card,
   CardContent,
-  CardFooter
+  CardFooter,
 } from "@baltimorecounty/dotgov-components";
 
 import React from "react";
 
-const NewsRoomCard = props => {
+const NewsRoomCard = (props) => {
   const { publishDate, title, author, articleSummary, url } = props;
   const options = {
     year: "numeric",
     month: "long",
-    day: "numeric"
+    day: "numeric",
   };
 
   const published = new Date(publishDate).toLocaleDateString("en-US", options);
@@ -25,7 +25,7 @@ const NewsRoomCard = props => {
           <div className="col dg_news_date-author">
             <p>
               <span>{published}</span>
-              <span>{author}</span>
+              <span>{author ? author : "Baltimore County"}</span>
             </p>
             <p>{articleSummary}</p>
           </div>
