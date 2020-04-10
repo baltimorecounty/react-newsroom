@@ -19,7 +19,9 @@ const NewsRoomCard = (props) => {
 
   return (
     <Card className="text-left">
-      <h2>{title}</h2>
+      <h2>
+        <a href={url}>{title}</a>
+      </h2>
       <CardContent>
         <div className="row">
           <div className="col dg_news_date-author">
