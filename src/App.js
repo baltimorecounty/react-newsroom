@@ -19,21 +19,21 @@ const prodApiRoot =
 const localApiRoot =
   window.location.hostname.indexOf("beta") > -1
     ? testApiRoot
-    :"http://localhost:54727/api/hub/structuredcontent/news";
+    : "http://localhost:54727/api/hub/structuredcontent/news";
 
 const configValues = {
   local: {
-    apiRoot: localApiRoot
+    apiRoot: localApiRoot,
   },
   development: {
-    apiRoot: testApiRoot
+    apiRoot: testApiRoot,
   },
   staging: {
-    apiRoot: testApiRoot
+    apiRoot: testApiRoot,
   },
   production: {
-    apiRoot: prodApiRoot
-  }
+    apiRoot: prodApiRoot,
+  },
 };
 
 setConfig(configValues);
@@ -44,9 +44,9 @@ const filters = [
     displayName: "Category",
     options: [
       { value: "releases", label: "News Releases" },
-      { value: "stories", label: "Stories" }
-    ]
-  }
+      { value: "stories", label: "Stories" },
+    ],
+  },
 ];
 
 function App() {
@@ -55,7 +55,8 @@ function App() {
       title="Baltimore County Newsroom"
       filters={filters}
       apiEndpoint={getValue("apiRoot")}
-      renderItem={props => <NewsRoomCard {...props} />}
+      renderItem={(props) => <NewsRoomCard {...props} />}
+      includeInputFilter={true}
     />
   );
 }
