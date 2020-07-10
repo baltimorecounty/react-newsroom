@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@baltimorecounty/dotgov-components": "^1.0.7",
+    "@baltimorecounty/dotgov-components": "^1.0.12",
     "@baltimorecounty/javascript-utilities": "^1.0.7",
     "@baltimorecounty/react-filter-list": "^0.2.2",
     "@testing-library/jest-dom": "^4.2.4",
