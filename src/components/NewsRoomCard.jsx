@@ -8,14 +8,17 @@ import {
 import React from "react";
 
 const NewsRoomCard = (props) => {
-  const { publishDate, title, author, articleSummary, url } = props;
+  const { contentDate, title, author, articleSummary, url } = props;
   const options = {
     year: "numeric",
     month: "long",
     day: "numeric",
   };
 
-  const published = new Date(publishDate).toLocaleDateString("en-US", options);
+  const articleDate = new Date(contentDate).toLocaleDateString(
+    "en-US",
+    options
+  );
 
   return (
     <Card className="text-left">
@@ -26,7 +29,7 @@ const NewsRoomCard = (props) => {
         <div className="row">
           <div className="col dg_news_date-author">
             <p>
-              <span>{published}</span>
+              <span>{articleDate}</span>
               <span>{author || "Baltimore County"}</span>
             </p>
             <p>{articleSummary}</p>
