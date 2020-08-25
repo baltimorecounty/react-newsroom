@@ -58,6 +58,7 @@ function App() {
       renderItem={(props) => <NewsRoomCard {...props} />}
       includeInputFilter={true}
       includeDateFilter={true}
+      searchCategory="NewsRoom"
       inputFilterPlaceholder="Begin typing to filter by title or summary..."
     />
   );
