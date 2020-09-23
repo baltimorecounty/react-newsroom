@@ -47,6 +47,10 @@ const filters = [
       { value: "stories", label: "Stories" },
     ],
   },
+  {
+    targetApiField: "recordsperpage",
+    value: 10,
+  },
 ];
 
 function App() {
