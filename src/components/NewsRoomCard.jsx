@@ -4,7 +4,7 @@ import {
   CardContent,
   CardFooter,
 } from "@baltimorecounty/dotgov-components";
-
+import ReactHtmlParser from "react-html-parser";
 import React from "react";
 
 const NewsRoomCard = (props) => {
@@ -23,7 +23,7 @@ const NewsRoomCard = (props) => {
   return (
     <Card className="text-left">
       <h2>
-        <a href={url}>{title}</a>
+        <a href={url}>{ReactHtmlParser(title)}</a>
       </h2>
       <CardContent>
         <div className="row">
@@ -32,7 +32,7 @@ const NewsRoomCard = (props) => {
               <span>{articleDate}</span>
               <span>{author || "Baltimore County"}</span>
             </p>
-            <p>{articleSummary}</p>
+            <p>{ReactHtmlParser(articleSummary)}</p>
           </div>
         </div>
       </CardContent>
